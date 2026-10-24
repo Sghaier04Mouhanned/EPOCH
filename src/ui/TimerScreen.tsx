@@ -86,7 +86,10 @@ export function TimerScreen({ app, snapshot }: { app: BrowserApp; snapshot: Time
               aria-valuemax={100}
               aria-valuenow={Math.round(progress * 100)}
             >
-              <div className={`fill ${isFocus ? 'fill-focus' : 'fill-break'}`} style={{ width: `${progress * 100}%` }} />
+              <div
+                className={`fill ${isFocus ? 'fill-focus' : 'fill-break'}`}
+                style={{ clipPath: `inset(0 ${100 - progress * 100}% 0 0 round 999px)` }}
+              />
             </div>
             <div className="ends num">
               <span>{c.status === 'idle' ? 'Not started' : `Started ${formatTime(c.startedAt)}`}</span>

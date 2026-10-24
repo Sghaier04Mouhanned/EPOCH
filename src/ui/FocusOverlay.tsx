@@ -11,7 +11,8 @@ import { formatCountdown } from './format';
 export const isFocusRunning = (state: PomodoroState) =>
   state.phase === 'focus' && state.countdown.status === 'running';
 
-export function FocusOverlay({ store, state, now }: { store: TimerStore; state: PomodoroState; now: number }) {
+export function FocusOverlay(props: { store: TimerStore; state: PomodoroState; now: number; leaving: boolean }) {
+  const { store, state, now, leaving } = props;
   const pause = useRef<HTMLButtonElement>(null);
   const time = formatCountdown(remainingMs(state.countdown, now));
 
@@ -40,7 +41,12 @@ export function FocusOverlay({ store, state, now }: { store: TimerStore; state: 
   }, [store]);
 
   return (
-    <div className="focus-overlay" role="dialog" aria-modal="true" aria-label="Focus session">
+    <div
+      className={`focus-overlay${leaving ? ' is-leaving' : ''}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Focus session"
+    >
       <p className={`focus-digits${time.length > 5 ? ' has-hours' : ''}`} role="timer" aria-live="off" aria-label={time}>
         <Digits value={time} />
       </p>

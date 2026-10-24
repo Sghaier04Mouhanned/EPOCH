@@ -8,6 +8,7 @@ Epoch includes the following third-party material. Everything else is covered by
 | `.claude/skills/design-taste-frontend/` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT, see folder `LICENSE` |
 | `.claude/skills/web-design-guidelines/guidelines.md` | [vercel-labs/web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines) | MIT, see folder `LICENSE` |
 | `.claude/skills/playwright-cli/` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | Apache-2.0, see folder `LICENSE` |
+| `.claude/skills/motion/` | Motion AI Kit, npm `motion-ai` 14.2.0 ([motiondivision/ai-kit](https://github.com/motiondivision/ai-kit)) | MIT, as declared in the package's `package.json` |
 
 `DESIGN.md` describes Linear's public design language and is used as a visual reference only.
 Epoch is not affiliated with or endorsed by Linear and uses none of its name, logo or assets.

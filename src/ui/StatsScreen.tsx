@@ -57,6 +57,12 @@ export function StatsScreen({ app, snapshot }: { app: BrowserApp; snapshot: Time
           <p className="subline">{loaded ? finding(stats, range) : ' '}</p>
         </div>
         <div className="segmented" role="radiogroup" aria-label="Period">
+          {/* One highlight that slides to the chosen option; the options share one width. */}
+          <span
+            className="segmented-highlight"
+            style={{ transform: `translateX(${RANGES.indexOf(range) * 100}%)` }}
+            aria-hidden="true"
+          />
           {RANGES.map((r) => (
             <button key={r} type="button" role="radio" aria-checked={r === range} onClick={() => choose(r)}>
               {r} days
@@ -264,7 +270,7 @@ function Completion({ stats }: { stats: RangeStats }) {
         aria-valuemax={100}
         aria-valuenow={Math.round(share * 100)}
       >
-        <div className="fill fill-focus" style={{ width: `${share * 100}%` }} />
+        <div className="fill fill-focus" style={{ clipPath: `inset(0 ${100 - share * 100}% 0 0 round 999px)` }} />
       </div>
       <div className="ends num">
         <span>{stats.completed} completed</span>

@@ -3,6 +3,7 @@ import { remainingMs } from '../engine/countdown';
 import type { BrowserApp } from '../app/browser';
 import { useTimer } from '../app/useTimer';
 import { FocusOverlay, isFocusRunning } from './FocusOverlay';
+import { usePresence } from './usePresence';
 import { PHASE_LABEL, formatCountdown } from './format';
 import { SettingsScreen } from './SettingsScreen';
 import { StatsScreen } from './StatsScreen';
@@ -42,10 +43,11 @@ export function App({ app }: { app: BrowserApp }) {
   }, [state, now]);
 
   const focusRunning = isFocusRunning(state);
+  const overlay = usePresence(focusRunning, 200);
 
   return (
     <>
-      {focusRunning && <FocusOverlay store={app.store} state={state} now={now} />}
+      {overlay.mounted && <FocusOverlay store={app.store} state={state} now={now} leaving={overlay.leaving} />}
       <header className={focusRunning ? 'topbar is-behind' : 'topbar'} inert={focusRunning}>
         <div className="topbar-inner">
           <a className="wordmark" href="#/">

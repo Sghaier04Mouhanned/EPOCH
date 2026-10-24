@@ -6,6 +6,7 @@ import type { TimerSnapshot } from '../app/timerStore';
 import { useAllSessions } from '../app/useAllSessions';
 import { buildBackup, importSessions, parseBackup } from '../storage/backup';
 import { PHASE_LABEL, formatDuration, plural } from './format';
+import { usePresence } from './usePresence';
 
 type NumberKey = 'focusMinutes' | 'shortBreakMinutes' | 'longBreakMinutes' | 'longBreakEvery';
 
@@ -55,13 +56,14 @@ export function SettingsScreen({ app, snapshot }: { app: BrowserApp; snapshot: T
 }
 
 function Section(props: { id: string; title: string; description: string; stamp?: boolean; children: ReactNode }) {
+  const saved = usePresence(Boolean(props.stamp), 200);
   return (
     <section className="settings-row" aria-labelledby={props.id}>
       <div className="settings-label">
         <h2 id={props.id} className="settings-title">
           {props.title}
-          {props.stamp && (
-            <span className="saved" role="status">
+          {saved.mounted && (
+            <span className={`saved${saved.leaving ? ' is-leaving' : ''}`} role="status">
               Saved
             </span>
           )}
