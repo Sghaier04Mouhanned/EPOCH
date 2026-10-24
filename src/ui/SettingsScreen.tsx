@@ -6,6 +6,8 @@ import type { TimerSnapshot } from '../app/timerStore';
 import { useAllSessions } from '../app/useAllSessions';
 import { buildBackup, importSessions, parseBackup } from '../storage/backup';
 import { PHASE_LABEL, formatDuration, plural } from './format';
+import { Segmented } from './Segmented';
+import { themeStore, type ThemePref } from './theme';
 import { usePresence } from './usePresence';
 
 type NumberKey = 'focusMinutes' | 'shortBreakMinutes' | 'longBreakMinutes' | 'longBreakEvery';
@@ -49,6 +51,7 @@ export function SettingsScreen({ app, snapshot }: { app: BrowserApp; snapshot: T
       <SessionLengths app={app} settings={settings} running={running} />
       <AutoStart app={app} settings={settings} />
       <Alerts app={app} />
+      <Appearance />
       <Backup app={app} settings={settings} />
       <DeleteHistory app={app} />
     </>
@@ -294,6 +297,41 @@ function Alerts({ app }: { app: BrowserApp }) {
         disabled={blocked}
         onChange={() => void toggleNotify()}
       />
+    </Section>
+  );
+}
+
+const THEMES: { value: ThemePref; label: string }[] = [
+  { value: 'system', label: 'System' },
+  { value: 'light', label: 'Light' },
+  { value: 'dark', label: 'Dark' },
+];
+
+function Appearance() {
+  const pref = useSyncExternalStore(themeStore.subscribe, themeStore.get);
+  const [saved, stamp] = useSavedStamp();
+  return (
+    <Section
+      id="appearance-title"
+      title="Appearance"
+      description="Light or dark. System follows your device and changes with it."
+      stamp={saved}
+    >
+      <div className="backup-row">
+        <div>
+          <p className="switch-title">Theme</p>
+          <p className="switch-desc">Saved on this device only.</p>
+        </div>
+        <Segmented
+          label="Theme"
+          options={THEMES}
+          value={pref}
+          onChange={(next) => {
+            themeStore.set(next);
+            stamp();
+          }}
+        />
+      </div>
     </Section>
   );
 }

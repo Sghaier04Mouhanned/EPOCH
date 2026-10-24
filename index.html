@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#010102" />
+    <script>
+      // Apply the saved or system theme before first paint (same rules as src/ui/theme.ts).
+      (function () {
+        var pref;
+        try {
+          pref = localStorage.getItem('epoch.theme.v1');
+        } catch (e) {}
+        var light = pref === 'light' || (pref !== 'dark' && matchMedia('(prefers-color-scheme: light)').matches);
+        document.documentElement.dataset.theme = light ? 'light' : 'dark';
+        document.querySelector('meta[name="theme-color"]').content = light ? '#f0f1f3' : '#010102';
+      })();
+    </script>
     <meta name="description" content="A Pomodoro study timer with stats. Works offline; your history stays on your device." />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />

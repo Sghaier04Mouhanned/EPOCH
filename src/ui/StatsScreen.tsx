@@ -8,6 +8,7 @@ import { computeRange, type RangeStats } from '../stats/range';
 import { DayColumns } from './DayColumns';
 import { formatDuration, plural } from './format';
 import { Heatmap } from './Heatmap';
+import { Segmented } from './Segmented';
 
 const RANGES = [7, 30, 90] as const;
 type Range = (typeof RANGES)[number];
@@ -56,19 +57,12 @@ export function StatsScreen({ app, snapshot }: { app: BrowserApp; snapshot: Time
           <h1>Stats</h1>
           <p className="subline">{loaded ? finding(stats, range) : ' '}</p>
         </div>
-        <div className="segmented" role="radiogroup" aria-label="Period">
-          {/* One highlight that slides to the chosen option; the options share one width. */}
-          <span
-            className="segmented-highlight"
-            style={{ transform: `translateX(${RANGES.indexOf(range) * 100}%)` }}
-            aria-hidden="true"
-          />
-          {RANGES.map((r) => (
-            <button key={r} type="button" role="radio" aria-checked={r === range} onClick={() => choose(r)}>
-              {r} days
-            </button>
-          ))}
-        </div>
+        <Segmented
+          label="Period"
+          options={RANGES.map((r) => ({ value: r, label: `${r} days` }))}
+          value={range}
+          onChange={choose}
+        />
       </header>
 
       {history.status === 'error' && (

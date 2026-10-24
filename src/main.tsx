@@ -1,5 +1,6 @@
 import '@fontsource-variable/inter';
 import './styles/app.css';
+import './ui/theme'; // follows the system setting while the app runs
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { connectBrowser, createBrowserApp } from './app/browser';

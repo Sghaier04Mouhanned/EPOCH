@@ -1,8 +1,10 @@
 /*
- * Epoch, dark only. Linear's palette (DESIGN.md) mapped onto the
- * true-black-flat app style: elevation by lightness alone, no borders or
- * shadows on cards, the primary control inverted (white pill), and the one
- * hue (Linear lavender) on focus data only, never on buttons or nav.
+ * Epoch. Linear's palette (DESIGN.md) mapped onto the true-black-flat app
+ * style: elevation by lightness alone, no borders or shadows on cards, the
+ * primary control inverted against the ground, and the one hue (Linear
+ * lavender) on focus data only, never on buttons or nav. Dark is the base;
+ * the light theme below maps Linear's inverse surfaces onto the same roles.
+ * src/ui/theme.ts (and index.html, before first paint) sets data-theme.
  *
  * Grid: 12 columns x 77px + 11 gaps x 16px = 1100px.
  * Row 1: countdown 8 cols (728) + 16 + up next 4 cols (356) = 1100.
@@ -23,10 +25,17 @@
   --faint: #8a8f98; /* meta, 5.2:1 on raised (Linear ink-subtle) */
 
   --accent: #5e6ad2; /* Linear lavender: focus data only */
+  --on-accent: #ffffff;
   --positive: #3fc07a; /* good changes, switches that are on */
   --negative: #e5566f; /* bad changes, destructive actions; 4.8:1 on raised */
+  --danger-hover: #2c1a20;
   --break: #4a4d55; /* breaks, in neutral grey */
+  --bar: #3c3f46; /* chart columns other than today's */
+  --grid: #1f2024;
+  --control-hover: #5a5c63;
+  --switch-off: #2a2c31;
   --primary: #f7f8f8;
+  --primary-hover: #ffffff;
   --on-primary: #010102;
 
   --radius-card: 16px;
@@ -37,6 +46,38 @@
   --width: min(1100px, calc(100% - 48px));
 
   --font: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/*
+ * Light: white panels one tone step above a cool grey ground, near-black ink
+ * and a near-black primary. Every text tier holds 4.5:1 on the surfaces it
+ * sits on: --muted 5.6:1 on --raised-2, --faint 4.6:1 on --ground.
+ */
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --ground: #f0f1f3;
+  --surface: #ffffff; /* Linear inverse-canvas */
+  --raised: #f3f4f6;
+  --raised-2: #e4e6ea;
+  --rule: #e8eaed;
+  --control: #c9cdd3;
+
+  --text: #111214;
+  --muted: #55595f;
+  --faint: #6a6e75;
+
+  --positive: #1f7a4c;
+  --negative: #c4242a;
+  --danger-hover: #fdeef0;
+  --break: #b8bcc4;
+  --bar: #cdd0d6;
+  --grid: #eceef1;
+  --control-hover: #a9aeb6;
+  --switch-off: #c4c8cf; /* dark enough for the white knob to show */
+  --primary: #111214;
+  --primary-hover: #000000;
+  --on-primary: #ffffff;
 }
 
 *,
@@ -56,7 +97,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--text);
+  color: var(--on-accent);
 }
 
 .num {
@@ -284,7 +325,7 @@ a {
 }
 
 .btn-primary:hover {
-  background: #ffffff;
+  background: var(--primary-hover);
 }
 
 .btn-secondary {
@@ -292,7 +333,7 @@ a {
 }
 
 .btn-secondary:hover {
-  border-color: #5a5c63;
+  border-color: var(--control-hover);
   background: var(--raised);
 }
 
@@ -643,7 +684,7 @@ a {
   left: 0;
   right: 0;
   height: 1px;
-  background: #1f2024;
+  background: var(--grid);
 }
 
 .gridline.baseline {
@@ -668,7 +709,7 @@ a {
 
 .bar {
   width: min(40px, 60%);
-  background: #3c3f46;
+  background: var(--bar);
   border-radius: 4px 4px 0 0;
 }
 
@@ -768,7 +809,6 @@ a {
 .segmented {
   position: relative;
   display: inline-grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   flex: none;
   padding: 3px;
   border-radius: 999px;
@@ -800,8 +840,7 @@ a {
   position: absolute;
   top: 3px;
   bottom: 3px;
-  left: 3px;
-  width: calc((100% - 6px) / 3);
+  left: 3px; /* width and position come from Segmented.tsx */
   border-radius: 999px;
   background: var(--raised-2);
   transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -878,7 +917,7 @@ a {
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: #3c3f46;
+  background: var(--bar);
 }
 
 .barlist .is-best .barlist-track span {
@@ -1178,7 +1217,7 @@ a {
   height: 20px;
   margin: 0;
   border-radius: 999px;
-  background: var(--raised-2);
+  background: var(--switch-off);
   cursor: pointer;
   transition: background-color 120ms ease;
 }
@@ -1191,7 +1230,7 @@ a {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--text);
+  background: #ffffff; /* a knob is white in both themes */
   transition: transform 120ms ease;
 }
 
@@ -1214,7 +1253,7 @@ a {
 }
 
 .btn-danger:hover {
-  background: #2c1a20;
+  background: var(--danger-hover);
 }
 
 .btn:disabled {

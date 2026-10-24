@@ -56,8 +56,9 @@ test in each language checks them against `fixtures/sample-stats-30d.json`.
 
 ## Design
 
-The visual base is [`DESIGN.md`](DESIGN.md), a dark, single-accent design system modelled on
-Linear's design language, refined for app screens. Epoch is not affiliated with Linear.
+The visual base is [`DESIGN.md`](DESIGN.md), a single-accent design system modelled on
+Linear's design language, refined for app screens, in a dark and a light theme (Settings >
+Appearance: System, Light or Dark). Epoch is not affiliated with Linear.
 
 ## License
 

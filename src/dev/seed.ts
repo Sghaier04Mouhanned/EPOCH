@@ -3,6 +3,7 @@
 //   ?at=15:20   pin the app's clock to that time today (it keeps ticking)
 //   ?seed       load fixtures/sample-backup.json, moved so its last day is today
 //   ?start      open with a focus session running (21:18 left), for the full-screen view
+//   ?theme=light|dark|system   choose the theme, as Settings > Appearance does
 //
 // The sample is written by `uv run --project tools epoch-sample`. Its wall-clock
 // times are re-read in this browser's time zone, and sessions after the
@@ -11,6 +12,7 @@
 import { ACTIVE_TIMER_KEY } from '../storage/activeTimer';
 import { parseBackup } from '../storage/backup';
 import { openSessionRepo, toStored } from '../storage/sessions';
+import { themeStore, type ThemePref } from '../ui/theme';
 
 export async function prepare(): Promise<{ now?: () => number }> {
   const params = new URLSearchParams(location.search);
@@ -64,6 +66,9 @@ export async function prepare(): Promise<{ now?: () => number }> {
       }),
     );
   }
+
+  const theme = params.get('theme');
+  if (theme === 'light' || theme === 'dark' || theme === 'system') themeStore.set(theme as ThemePref);
 
   return { now: offset ? now : undefined };
 }
