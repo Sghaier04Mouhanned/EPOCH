@@ -51,17 +51,19 @@ export function createTimerStore(deps: TimerStoreDeps) {
 
   const listeners = new Set<() => void>();
   const phaseEndListeners = new Set<(e: PhaseEnd) => void>();
+  const writtenListeners = new Set<() => void>();
   const pendingWrites = new Set<Promise<void>>();
 
   let settings = loadSettings(storage);
   let state = applySettings(loadActiveTimer(storage) ?? initialState(settings), settings);
   let snapshot: TimerSnapshot = { state, settings, now: now() };
   let shownSecond = displayedSecond(snapshot);
+  let shownMinute = Math.floor(snapshot.now / 60_000);
 
   function persistSession(record: SessionRecord) {
     const write = sessions
       .put(toStored(record))
-      .catch(onError)
+      .then(notifyWritten, onError)
       .finally(() => pendingWrites.delete(write));
     pendingWrites.add(write);
   }
@@ -82,14 +84,31 @@ export function createTimerStore(deps: TimerStoreDeps) {
     publish(at);
   }
 
-  /** Emit a new snapshot only when something visible changed, at most once per displayed second. */
+  /**
+   * Emit a new snapshot only when something visible changed: the state, the
+   * settings, the displayed second, or the wall-clock minute (so clock times
+   * shown next to an idle timer stay current).
+   */
   function publish(at: number) {
     const next: TimerSnapshot = { state, settings, now: at };
     const second = displayedSecond(next);
-    if (next.state === snapshot.state && next.settings === snapshot.settings && second === shownSecond) return;
+    const minute = Math.floor(at / 60_000);
+    if (
+      next.state === snapshot.state &&
+      next.settings === snapshot.settings &&
+      second === shownSecond &&
+      minute === shownMinute
+    ) {
+      return;
+    }
     snapshot = next;
     shownSecond = second;
+    shownMinute = minute;
     for (const l of listeners) l();
+  }
+
+  function notifyWritten() {
+    for (const l of writtenListeners) l();
   }
 
   function dispatch(type: Command | 'tick') {
@@ -115,6 +134,12 @@ export function createTimerStore(deps: TimerStoreDeps) {
     onPhaseEnd(listener: (e: PhaseEnd) => void) {
       phaseEndListeners.add(listener);
       return () => void phaseEndListeners.delete(listener);
+    },
+
+    /** Fires after this tab finished writing a session to history. */
+    onSessionWritten(listener: () => void) {
+      writtenListeners.add(listener);
+      return () => void writtenListeners.delete(listener);
     },
 
     start: () => dispatch('start'),

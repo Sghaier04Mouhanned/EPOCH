@@ -179,6 +179,14 @@ describe('pomodoro', () => {
       expect(records[0]).toMatchObject({ actualMs: 7 * MIN, completed: false, endedAt: T0 + 9 * MIN });
     });
 
+    it('records nothing for an accidental start stopped within a minute', () => {
+      const { records } = run(initialState(S), [
+        { type: 'start', now: T0 },
+        { type: 'reset', now: T0 + 59_999 },
+      ]);
+      expect(records).toEqual([]);
+    });
+
     it('records nothing when reset while idle', () => {
       expect(reduce(initialState(S), { type: 'reset', now: T0 }, S).record).toBeUndefined();
     });

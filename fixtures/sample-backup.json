@@ -1,0 +1,2967 @@
+{
+ "app": "epoch",
+ "version": 1,
+ "exportedAt": "2026-10-24T23:00:00Z",
+ "settings": {
+  "focusMinutes": 25,
+  "shortBreakMinutes": 5,
+  "longBreakMinutes": 15,
+  "longBreakEvery": 4,
+  "autoStartBreaks": false,
+  "autoStartFocus": false
+ },
+ "sessions": [
+  {
+   "id": "1791103140000-focus",
+   "phase": "focus",
+   "startedAt": 1791103140000,
+   "endedAt": 1791105000000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791105024000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791105024000,
+   "endedAt": 1791105324000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791105338000-focus",
+   "phase": "focus",
+   "startedAt": 1791105338000,
+   "endedAt": 1791106838000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791106860000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791106860000,
+   "endedAt": 1791107160000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791107177000-focus",
+   "phase": "focus",
+   "startedAt": 1791107177000,
+   "endedAt": 1791108677000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791108692000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791108692000,
+   "endedAt": 1791108992000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791109023000-focus",
+   "phase": "focus",
+   "startedAt": 1791109023000,
+   "endedAt": 1791110523000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791110672000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791110672000,
+   "endedAt": 1791111572000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791111587000-focus",
+   "phase": "focus",
+   "startedAt": 1791111587000,
+   "endedAt": 1791113087000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791113143000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791113143000,
+   "endedAt": 1791113357524,
+   "plannedMs": 300000,
+   "actualMs": 214524,
+   "completed": false
+  },
+  {
+   "id": "1791113431524-focus",
+   "phase": "focus",
+   "startedAt": 1791113431524,
+   "endedAt": 1791114931524,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791115077524-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791115077524,
+   "endedAt": 1791115377524,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791118483524-focus",
+   "phase": "focus",
+   "startedAt": 1791118483524,
+   "endedAt": 1791119983524,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791119999524-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791119999524,
+   "endedAt": 1791120299524,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791120351524-focus",
+   "phase": "focus",
+   "startedAt": 1791120351524,
+   "endedAt": 1791121851524,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791121931524-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791121931524,
+   "endedAt": 1791122831524,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791122950524-focus",
+   "phase": "focus",
+   "startedAt": 1791122950524,
+   "endedAt": 1791124450524,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791124526524-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791124526524,
+   "endedAt": 1791124826524,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791192780000-focus",
+   "phase": "focus",
+   "startedAt": 1791192780000,
+   "endedAt": 1791194280000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791194394000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791194394000,
+   "endedAt": 1791194694000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791194712000-focus",
+   "phase": "focus",
+   "startedAt": 1791194712000,
+   "endedAt": 1791195423223,
+   "plannedMs": 1500000,
+   "actualMs": 711223,
+   "completed": false
+  },
+  {
+   "id": "1791195461223-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791195461223,
+   "endedAt": 1791195761223,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791195886223-focus",
+   "phase": "focus",
+   "startedAt": 1791195886223,
+   "endedAt": 1791197386223,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791197405223-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791197405223,
+   "endedAt": 1791197705223,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791197851223-focus",
+   "phase": "focus",
+   "startedAt": 1791197851223,
+   "endedAt": 1791199351223,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791199438223-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791199438223,
+   "endedAt": 1791199738223,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791199865223-focus",
+   "phase": "focus",
+   "startedAt": 1791199865223,
+   "endedAt": 1791201365223,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791201388223-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791201388223,
+   "endedAt": 1791202288223,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791206857223-focus",
+   "phase": "focus",
+   "startedAt": 1791206857223,
+   "endedAt": 1791207806476,
+   "plannedMs": 1500000,
+   "actualMs": 949253,
+   "completed": false
+  },
+  {
+   "id": "1791207920476-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791207920476,
+   "endedAt": 1791208220476,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791208292476-focus",
+   "phase": "focus",
+   "startedAt": 1791208292476,
+   "endedAt": 1791209792476,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791209880476-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791209880476,
+   "endedAt": 1791210023581,
+   "plannedMs": 300000,
+   "actualMs": 143105,
+   "completed": false
+  },
+  {
+   "id": "1791276420000-focus",
+   "phase": "focus",
+   "startedAt": 1791276420000,
+   "endedAt": 1791276987996,
+   "plannedMs": 1500000,
+   "actualMs": 567996,
+   "completed": false
+  },
+  {
+   "id": "1791277114996-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791277114996,
+   "endedAt": 1791277414996,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791277434996-focus",
+   "phase": "focus",
+   "startedAt": 1791277434996,
+   "endedAt": 1791278934996,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791279005996-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791279005996,
+   "endedAt": 1791279305996,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791279415996-focus",
+   "phase": "focus",
+   "startedAt": 1791279415996,
+   "endedAt": 1791280915996,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791281021996-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791281021996,
+   "endedAt": 1791281321996,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791281418996-focus",
+   "phase": "focus",
+   "startedAt": 1791281418996,
+   "endedAt": 1791282918996,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791282963996-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791282963996,
+   "endedAt": 1791283263996,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791283322996-focus",
+   "phase": "focus",
+   "startedAt": 1791283322996,
+   "endedAt": 1791284381114,
+   "plannedMs": 1500000,
+   "actualMs": 1058118,
+   "completed": false
+  },
+  {
+   "id": "1791284453114-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791284453114,
+   "endedAt": 1791284753114,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791287994114-focus",
+   "phase": "focus",
+   "startedAt": 1791287994114,
+   "endedAt": 1791289494114,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791289575114-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791289575114,
+   "endedAt": 1791290475114,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791290507114-focus",
+   "phase": "focus",
+   "startedAt": 1791290507114,
+   "endedAt": 1791292007114,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791292020114-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791292020114,
+   "endedAt": 1791292320114,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791292463114-focus",
+   "phase": "focus",
+   "startedAt": 1791292463114,
+   "endedAt": 1791293963114,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791293989114-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791293989114,
+   "endedAt": 1791294289114,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791294391114-focus",
+   "phase": "focus",
+   "startedAt": 1791294391114,
+   "endedAt": 1791294807685,
+   "plannedMs": 1500000,
+   "actualMs": 416571,
+   "completed": false
+  },
+  {
+   "id": "1791294848685-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791294848685,
+   "endedAt": 1791295148685,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791295176685-focus",
+   "phase": "focus",
+   "startedAt": 1791295176685,
+   "endedAt": 1791296796685,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791296941685-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791296941685,
+   "endedAt": 1791297241685,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791361740000-focus",
+   "phase": "focus",
+   "startedAt": 1791361740000,
+   "endedAt": 1791363240000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791363304000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791363304000,
+   "endedAt": 1791363604000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791363697000-focus",
+   "phase": "focus",
+   "startedAt": 1791363697000,
+   "endedAt": 1791365497000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791365616000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791365616000,
+   "endedAt": 1791365916000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791365995000-focus",
+   "phase": "focus",
+   "startedAt": 1791365995000,
+   "endedAt": 1791366440837,
+   "plannedMs": 1500000,
+   "actualMs": 445837,
+   "completed": false
+  },
+  {
+   "id": "1791366507837-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791366507837,
+   "endedAt": 1791366807837,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791366929837-focus",
+   "phase": "focus",
+   "startedAt": 1791366929837,
+   "endedAt": 1791368429837,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791368434837-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791368434837,
+   "endedAt": 1791368734837,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791372949837-focus",
+   "phase": "focus",
+   "startedAt": 1791372949837,
+   "endedAt": 1791374449837,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791374584837-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791374584837,
+   "endedAt": 1791375484837,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791375560837-focus",
+   "phase": "focus",
+   "startedAt": 1791375560837,
+   "endedAt": 1791377060837,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791377126837-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791377126837,
+   "endedAt": 1791377426837,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791377468837-focus",
+   "phase": "focus",
+   "startedAt": 1791377468837,
+   "endedAt": 1791378968837,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791379106837-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791379106837,
+   "endedAt": 1791379406837,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791449040000-focus",
+   "phase": "focus",
+   "startedAt": 1791449040000,
+   "endedAt": 1791450540000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791450598000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791450598000,
+   "endedAt": 1791450898000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791451024000-focus",
+   "phase": "focus",
+   "startedAt": 1791451024000,
+   "endedAt": 1791452644000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791452715000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791452715000,
+   "endedAt": 1791453015000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791453064000-focus",
+   "phase": "focus",
+   "startedAt": 1791453064000,
+   "endedAt": 1791454564000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791454678000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791454678000,
+   "endedAt": 1791454978000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791455067000-focus",
+   "phase": "focus",
+   "startedAt": 1791455067000,
+   "endedAt": 1791456567000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791456623000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791456623000,
+   "endedAt": 1791457523000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791461089000-focus",
+   "phase": "focus",
+   "startedAt": 1791461089000,
+   "endedAt": 1791462589000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791462589000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791462589000,
+   "endedAt": 1791462889000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791462977000-focus",
+   "phase": "focus",
+   "startedAt": 1791462977000,
+   "endedAt": 1791464897000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791464927000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791464927000,
+   "endedAt": 1791465227000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791465278000-focus",
+   "phase": "focus",
+   "startedAt": 1791465278000,
+   "endedAt": 1791466778000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791466863000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791466863000,
+   "endedAt": 1791467163000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791467264000-focus",
+   "phase": "focus",
+   "startedAt": 1791467264000,
+   "endedAt": 1791468764000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791468785000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791468785000,
+   "endedAt": 1791469685000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791469725000-focus",
+   "phase": "focus",
+   "startedAt": 1791469725000,
+   "endedAt": 1791471225000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791471263000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791471263000,
+   "endedAt": 1791471563000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791624000000-focus",
+   "phase": "focus",
+   "startedAt": 1791624000000,
+   "endedAt": 1791625500000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791625505000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791625505000,
+   "endedAt": 1791625739760,
+   "plannedMs": 300000,
+   "actualMs": 234760,
+   "completed": false
+  },
+  {
+   "id": "1791625765760-focus",
+   "phase": "focus",
+   "startedAt": 1791625765760,
+   "endedAt": 1791627265760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791627376760-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791627376760,
+   "endedAt": 1791627676760,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791627725760-focus",
+   "phase": "focus",
+   "startedAt": 1791627725760,
+   "endedAt": 1791629225760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791629289760-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791629289760,
+   "endedAt": 1791629589760,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791629717760-focus",
+   "phase": "focus",
+   "startedAt": 1791629717760,
+   "endedAt": 1791631217760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791631283760-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791631283760,
+   "endedAt": 1791632183760,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791632322760-focus",
+   "phase": "focus",
+   "startedAt": 1791632322760,
+   "endedAt": 1791633822760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791633912760-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791633912760,
+   "endedAt": 1791634212760,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791639041760-focus",
+   "phase": "focus",
+   "startedAt": 1791639041760,
+   "endedAt": 1791640541760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791640574760-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791640574760,
+   "endedAt": 1791640874760,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791641008760-focus",
+   "phase": "focus",
+   "startedAt": 1791641008760,
+   "endedAt": 1791642508760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791642554760-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791642554760,
+   "endedAt": 1791642854760,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791642892760-focus",
+   "phase": "focus",
+   "startedAt": 1791642892760,
+   "endedAt": 1791644392760,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791644422760-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791644422760,
+   "endedAt": 1791645322760,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791645464760-focus",
+   "phase": "focus",
+   "startedAt": 1791645464760,
+   "endedAt": 1791646397918,
+   "plannedMs": 1500000,
+   "actualMs": 933158,
+   "completed": false
+  },
+  {
+   "id": "1791646520918-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791646520918,
+   "endedAt": 1791646820918,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791646847918-focus",
+   "phase": "focus",
+   "startedAt": 1791646847918,
+   "endedAt": 1791648527918,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791648597918-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791648597918,
+   "endedAt": 1791648675512,
+   "plannedMs": 300000,
+   "actualMs": 77594,
+   "completed": false
+  },
+  {
+   "id": "1791707280000-focus",
+   "phase": "focus",
+   "startedAt": 1791707280000,
+   "endedAt": 1791708780000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791708911000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791708911000,
+   "endedAt": 1791709211000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791709281000-focus",
+   "phase": "focus",
+   "startedAt": 1791709281000,
+   "endedAt": 1791710781000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791710903000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791710903000,
+   "endedAt": 1791711203000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791711266000-focus",
+   "phase": "focus",
+   "startedAt": 1791711266000,
+   "endedAt": 1791712766000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791712832000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791712832000,
+   "endedAt": 1791713132000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791713183000-focus",
+   "phase": "focus",
+   "startedAt": 1791713183000,
+   "endedAt": 1791714683000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791714714000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791714714000,
+   "endedAt": 1791715614000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791715714000-focus",
+   "phase": "focus",
+   "startedAt": 1791715714000,
+   "endedAt": 1791717394000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791717503000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791717503000,
+   "endedAt": 1791717683504,
+   "plannedMs": 300000,
+   "actualMs": 180504,
+   "completed": false
+  },
+  {
+   "id": "1791717714504-focus",
+   "phase": "focus",
+   "startedAt": 1791717714504,
+   "endedAt": 1791719214504,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791719307504-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791719307504,
+   "endedAt": 1791719607504,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791724082504-focus",
+   "phase": "focus",
+   "startedAt": 1791724082504,
+   "endedAt": 1791725882504,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791725923504-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791725923504,
+   "endedAt": 1791726223504,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791726280504-focus",
+   "phase": "focus",
+   "startedAt": 1791726280504,
+   "endedAt": 1791727780504,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791727911504-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791727911504,
+   "endedAt": 1791728811504,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791728914504-focus",
+   "phase": "focus",
+   "startedAt": 1791728914504,
+   "endedAt": 1791730414504,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791730495504-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791730495504,
+   "endedAt": 1791730795504,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791740488504-focus",
+   "phase": "focus",
+   "startedAt": 1791740488504,
+   "endedAt": 1791742228504,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791742360504-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791742360504,
+   "endedAt": 1791742660504,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791742791504-focus",
+   "phase": "focus",
+   "startedAt": 1791742791504,
+   "endedAt": 1791744471504,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791744497504-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791744497504,
+   "endedAt": 1791744797504,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791881640000-focus",
+   "phase": "focus",
+   "startedAt": 1791881640000,
+   "endedAt": 1791883140000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791883206000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791883206000,
+   "endedAt": 1791883506000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791883643000-focus",
+   "phase": "focus",
+   "startedAt": 1791883643000,
+   "endedAt": 1791885143000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791885226000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791885226000,
+   "endedAt": 1791885526000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791885540000-focus",
+   "phase": "focus",
+   "startedAt": 1791885540000,
+   "endedAt": 1791887040000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791887058000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791887058000,
+   "endedAt": 1791887358000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791887362000-focus",
+   "phase": "focus",
+   "startedAt": 1791887362000,
+   "endedAt": 1791888862000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791888883000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791888883000,
+   "endedAt": 1791889783000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791892779000-focus",
+   "phase": "focus",
+   "startedAt": 1791892779000,
+   "endedAt": 1791894279000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791894365000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791894365000,
+   "endedAt": 1791894665000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791894771000-focus",
+   "phase": "focus",
+   "startedAt": 1791894771000,
+   "endedAt": 1791896271000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791896304000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791896304000,
+   "endedAt": 1791896491716,
+   "plannedMs": 300000,
+   "actualMs": 187716,
+   "completed": false
+  },
+  {
+   "id": "1791896519716-focus",
+   "phase": "focus",
+   "startedAt": 1791896519716,
+   "endedAt": 1791898019716,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791898065716-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791898065716,
+   "endedAt": 1791898365716,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791898444716-focus",
+   "phase": "focus",
+   "startedAt": 1791898444716,
+   "endedAt": 1791899944716,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791899996716-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791899996716,
+   "endedAt": 1791900896716,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791968040000-focus",
+   "phase": "focus",
+   "startedAt": 1791968040000,
+   "endedAt": 1791969540000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791969549000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791969549000,
+   "endedAt": 1791969740954,
+   "plannedMs": 300000,
+   "actualMs": 191954,
+   "completed": false
+  },
+  {
+   "id": "1791969881954-focus",
+   "phase": "focus",
+   "startedAt": 1791969881954,
+   "endedAt": 1791971381954,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791971443954-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791971443954,
+   "endedAt": 1791971743954,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791971770954-focus",
+   "phase": "focus",
+   "startedAt": 1791971770954,
+   "endedAt": 1791973270954,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791973396954-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791973396954,
+   "endedAt": 1791973696954,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791973796954-focus",
+   "phase": "focus",
+   "startedAt": 1791973796954,
+   "endedAt": 1791975296954,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791975351954-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791975351954,
+   "endedAt": 1791976251954,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1791976309954-focus",
+   "phase": "focus",
+   "startedAt": 1791976309954,
+   "endedAt": 1791977809954,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791977844954-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791977844954,
+   "endedAt": 1791978144954,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791981112954-focus",
+   "phase": "focus",
+   "startedAt": 1791981112954,
+   "endedAt": 1791981998330,
+   "plannedMs": 1500000,
+   "actualMs": 885376,
+   "completed": false
+  },
+  {
+   "id": "1791982108330-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791982108330,
+   "endedAt": 1791982408330,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791982449330-focus",
+   "phase": "focus",
+   "startedAt": 1791982449330,
+   "endedAt": 1791983368121,
+   "plannedMs": 1500000,
+   "actualMs": 918791,
+   "completed": false
+  },
+  {
+   "id": "1791983497121-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791983497121,
+   "endedAt": 1791983797121,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791983869121-focus",
+   "phase": "focus",
+   "startedAt": 1791983869121,
+   "endedAt": 1791985369121,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791985380121-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791985380121,
+   "endedAt": 1791985680121,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791991120121-focus",
+   "phase": "focus",
+   "startedAt": 1791991120121,
+   "endedAt": 1791992620121,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791992760121-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1791992760121,
+   "endedAt": 1791993060121,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1791993068121-focus",
+   "phase": "focus",
+   "startedAt": 1791993068121,
+   "endedAt": 1791994568121,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1791994659121-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1791994659121,
+   "endedAt": 1791995559121,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792142400000-focus",
+   "phase": "focus",
+   "startedAt": 1792142400000,
+   "endedAt": 1792143900000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792144029000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792144029000,
+   "endedAt": 1792144329000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792144352000-focus",
+   "phase": "focus",
+   "startedAt": 1792144352000,
+   "endedAt": 1792146152000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792146302000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792146302000,
+   "endedAt": 1792146366048,
+   "plannedMs": 300000,
+   "actualMs": 64048,
+   "completed": false
+  },
+  {
+   "id": "1792146443048-focus",
+   "phase": "focus",
+   "startedAt": 1792146443048,
+   "endedAt": 1792148303048,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792148342048-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792148342048,
+   "endedAt": 1792148642048,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792148741048-focus",
+   "phase": "focus",
+   "startedAt": 1792148741048,
+   "endedAt": 1792150241048,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792150367048-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792150367048,
+   "endedAt": 1792151267048,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792151305048-focus",
+   "phase": "focus",
+   "startedAt": 1792151305048,
+   "endedAt": 1792152805048,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792152842048-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792152842048,
+   "endedAt": 1792153052400,
+   "plannedMs": 300000,
+   "actualMs": 210352,
+   "completed": false
+  },
+  {
+   "id": "1792157503400-focus",
+   "phase": "focus",
+   "startedAt": 1792157503400,
+   "endedAt": 1792159003400,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792159148400-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792159148400,
+   "endedAt": 1792159448400,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792159452400-focus",
+   "phase": "focus",
+   "startedAt": 1792159452400,
+   "endedAt": 1792160952400,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792161010400-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792161010400,
+   "endedAt": 1792161310400,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792161320400-focus",
+   "phase": "focus",
+   "startedAt": 1792161320400,
+   "endedAt": 1792162820400,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792162846400-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792162846400,
+   "endedAt": 1792163746400,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792230000000-focus",
+   "phase": "focus",
+   "startedAt": 1792230000000,
+   "endedAt": 1792231500000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792231625000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792231625000,
+   "endedAt": 1792231925000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792232041000-focus",
+   "phase": "focus",
+   "startedAt": 1792232041000,
+   "endedAt": 1792233541000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792233669000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792233669000,
+   "endedAt": 1792233969000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792233992000-focus",
+   "phase": "focus",
+   "startedAt": 1792233992000,
+   "endedAt": 1792235912000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792236033000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792236033000,
+   "endedAt": 1792236333000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792240012000-focus",
+   "phase": "focus",
+   "startedAt": 1792240012000,
+   "endedAt": 1792241512000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792241629000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792241629000,
+   "endedAt": 1792242529000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792242655000-focus",
+   "phase": "focus",
+   "startedAt": 1792242655000,
+   "endedAt": 1792244575000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792244648000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792244648000,
+   "endedAt": 1792244948000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792244998000-focus",
+   "phase": "focus",
+   "startedAt": 1792244998000,
+   "endedAt": 1792245481837,
+   "plannedMs": 1500000,
+   "actualMs": 483837,
+   "completed": false
+  },
+  {
+   "id": "1792245558837-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792245558837,
+   "endedAt": 1792245858837,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792255063837-focus",
+   "phase": "focus",
+   "startedAt": 1792255063837,
+   "endedAt": 1792256563837,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792256588837-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792256588837,
+   "endedAt": 1792256888837,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792315560000-focus",
+   "phase": "focus",
+   "startedAt": 1792315560000,
+   "endedAt": 1792317060000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792317090000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792317090000,
+   "endedAt": 1792317390000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792317530000-focus",
+   "phase": "focus",
+   "startedAt": 1792317530000,
+   "endedAt": 1792319030000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792319151000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792319151000,
+   "endedAt": 1792319293614,
+   "plannedMs": 300000,
+   "actualMs": 142614,
+   "completed": false
+  },
+  {
+   "id": "1792319422614-focus",
+   "phase": "focus",
+   "startedAt": 1792319422614,
+   "endedAt": 1792320922614,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792320990614-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792320990614,
+   "endedAt": 1792321290614,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792321343614-focus",
+   "phase": "focus",
+   "startedAt": 1792321343614,
+   "endedAt": 1792321779468,
+   "plannedMs": 1500000,
+   "actualMs": 435854,
+   "completed": false
+  },
+  {
+   "id": "1792321846468-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792321846468,
+   "endedAt": 1792322146468,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792322238468-focus",
+   "phase": "focus",
+   "startedAt": 1792322238468,
+   "endedAt": 1792323738468,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792323868468-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792323868468,
+   "endedAt": 1792324768468,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792327959468-focus",
+   "phase": "focus",
+   "startedAt": 1792327959468,
+   "endedAt": 1792329459468,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792329583468-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792329583468,
+   "endedAt": 1792329883468,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792329923468-focus",
+   "phase": "focus",
+   "startedAt": 1792329923468,
+   "endedAt": 1792330696492,
+   "plannedMs": 1500000,
+   "actualMs": 773024,
+   "completed": false
+  },
+  {
+   "id": "1792330773492-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792330773492,
+   "endedAt": 1792331073492,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792331109492-focus",
+   "phase": "focus",
+   "startedAt": 1792331109492,
+   "endedAt": 1792332609492,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792332639492-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792332639492,
+   "endedAt": 1792332939492,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792332939492-focus",
+   "phase": "focus",
+   "startedAt": 1792332939492,
+   "endedAt": 1792334439492,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792334540492-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792334540492,
+   "endedAt": 1792334840492,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792400220000-focus",
+   "phase": "focus",
+   "startedAt": 1792400220000,
+   "endedAt": 1792401720000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792401870000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792401870000,
+   "endedAt": 1792402096574,
+   "plannedMs": 300000,
+   "actualMs": 226574,
+   "completed": false
+  },
+  {
+   "id": "1792402166574-focus",
+   "phase": "focus",
+   "startedAt": 1792402166574,
+   "endedAt": 1792403666574,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792403679574-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792403679574,
+   "endedAt": 1792403979574,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792404052574-focus",
+   "phase": "focus",
+   "startedAt": 1792404052574,
+   "endedAt": 1792405552574,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792405620574-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792405620574,
+   "endedAt": 1792405920574,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792406000574-focus",
+   "phase": "focus",
+   "startedAt": 1792406000574,
+   "endedAt": 1792407500574,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792407609574-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792407609574,
+   "endedAt": 1792408509574,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792408516574-focus",
+   "phase": "focus",
+   "startedAt": 1792408516574,
+   "endedAt": 1792410016574,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792410157574-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792410157574,
+   "endedAt": 1792410457574,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792413357574-focus",
+   "phase": "focus",
+   "startedAt": 1792413357574,
+   "endedAt": 1792414857574,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792414930574-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792414930574,
+   "endedAt": 1792415230574,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792415370574-focus",
+   "phase": "focus",
+   "startedAt": 1792415370574,
+   "endedAt": 1792416127208,
+   "plannedMs": 1500000,
+   "actualMs": 756634,
+   "completed": false
+  },
+  {
+   "id": "1792416203208-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792416203208,
+   "endedAt": 1792416503208,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792416568208-focus",
+   "phase": "focus",
+   "startedAt": 1792416568208,
+   "endedAt": 1792418068208,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792418134208-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792418134208,
+   "endedAt": 1792418434208,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792418495208-focus",
+   "phase": "focus",
+   "startedAt": 1792418495208,
+   "endedAt": 1792419995208,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792420095208-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792420095208,
+   "endedAt": 1792420995208,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792421025208-focus",
+   "phase": "focus",
+   "startedAt": 1792421025208,
+   "endedAt": 1792422525208,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792422578208-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792422578208,
+   "endedAt": 1792422878208,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792487820000-focus",
+   "phase": "focus",
+   "startedAt": 1792487820000,
+   "endedAt": 1792489320000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792489355000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792489355000,
+   "endedAt": 1792489655000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792489717000-focus",
+   "phase": "focus",
+   "startedAt": 1792489717000,
+   "endedAt": 1792490544242,
+   "plannedMs": 1500000,
+   "actualMs": 647242,
+   "completed": false
+  },
+  {
+   "id": "1792490638242-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792490638242,
+   "endedAt": 1792490938242,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792491004242-focus",
+   "phase": "focus",
+   "startedAt": 1792491004242,
+   "endedAt": 1792492504242,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792492509242-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792492509242,
+   "endedAt": 1792492809242,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792492914242-focus",
+   "phase": "focus",
+   "startedAt": 1792492914242,
+   "endedAt": 1792494414242,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792494467242-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792494467242,
+   "endedAt": 1792494767242,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792494853242-focus",
+   "phase": "focus",
+   "startedAt": 1792494853242,
+   "endedAt": 1792496353242,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792496500242-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792496500242,
+   "endedAt": 1792497400242,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792500672242-focus",
+   "phase": "focus",
+   "startedAt": 1792500672242,
+   "endedAt": 1792501785545,
+   "plannedMs": 1500000,
+   "actualMs": 1113303,
+   "completed": false
+  },
+  {
+   "id": "1792501899545-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792501899545,
+   "endedAt": 1792502199545,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792502309545-focus",
+   "phase": "focus",
+   "startedAt": 1792502309545,
+   "endedAt": 1792503809545,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792503814545-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792503814545,
+   "endedAt": 1792504114545,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792504222545-focus",
+   "phase": "focus",
+   "startedAt": 1792504222545,
+   "endedAt": 1792505722545,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792505843545-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792505843545,
+   "endedAt": 1792506143545,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792514668545-focus",
+   "phase": "focus",
+   "startedAt": 1792514668545,
+   "endedAt": 1792516168545,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792516231545-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792516231545,
+   "endedAt": 1792516531545,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792516588545-focus",
+   "phase": "focus",
+   "startedAt": 1792516588545,
+   "endedAt": 1792518088545,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792518115545-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792518115545,
+   "endedAt": 1792519015545,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792519132545-focus",
+   "phase": "focus",
+   "startedAt": 1792519132545,
+   "endedAt": 1792520325108,
+   "plannedMs": 1500000,
+   "actualMs": 1012563,
+   "completed": false
+  },
+  {
+   "id": "1792520384108-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792520384108,
+   "endedAt": 1792520684108,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792571040000-focus",
+   "phase": "focus",
+   "startedAt": 1792571040000,
+   "endedAt": 1792572540000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792572675000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792572675000,
+   "endedAt": 1792572975000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792573003000-focus",
+   "phase": "focus",
+   "startedAt": 1792573003000,
+   "endedAt": 1792573615293,
+   "plannedMs": 1500000,
+   "actualMs": 612293,
+   "completed": false
+  },
+  {
+   "id": "1792573664293-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792573664293,
+   "endedAt": 1792573964293,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792574063293-focus",
+   "phase": "focus",
+   "startedAt": 1792574063293,
+   "endedAt": 1792575563293,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792575563293-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792575563293,
+   "endedAt": 1792575677566,
+   "plannedMs": 300000,
+   "actualMs": 114273,
+   "completed": false
+  },
+  {
+   "id": "1792575794566-focus",
+   "phase": "focus",
+   "startedAt": 1792575794566,
+   "endedAt": 1792577294566,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792577356566-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792577356566,
+   "endedAt": 1792577656566,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792577716566-focus",
+   "phase": "focus",
+   "startedAt": 1792577716566,
+   "endedAt": 1792579516566,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792579594566-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792579594566,
+   "endedAt": 1792580494566,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792583268566-focus",
+   "phase": "focus",
+   "startedAt": 1792583268566,
+   "endedAt": 1792584768566,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792584875566-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792584875566,
+   "endedAt": 1792585175566,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792585233566-focus",
+   "phase": "focus",
+   "startedAt": 1792585233566,
+   "endedAt": 1792586733566,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792586791566-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792586791566,
+   "endedAt": 1792587091566,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792587177566-focus",
+   "phase": "focus",
+   "startedAt": 1792587177566,
+   "endedAt": 1792588677566,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792588778566-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792588778566,
+   "endedAt": 1792589078566,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792661040000-focus",
+   "phase": "focus",
+   "startedAt": 1792661040000,
+   "endedAt": 1792662540000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792662619000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792662619000,
+   "endedAt": 1792662919000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792662968000-focus",
+   "phase": "focus",
+   "startedAt": 1792662968000,
+   "endedAt": 1792664468000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792664543000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792664543000,
+   "endedAt": 1792664843000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792664969000-focus",
+   "phase": "focus",
+   "startedAt": 1792664969000,
+   "endedAt": 1792666469000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792666593000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792666593000,
+   "endedAt": 1792666893000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792670147000-focus",
+   "phase": "focus",
+   "startedAt": 1792670147000,
+   "endedAt": 1792670526848,
+   "plannedMs": 1500000,
+   "actualMs": 379848,
+   "completed": false
+  },
+  {
+   "id": "1792670632848-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792670632848,
+   "endedAt": 1792670932848,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792670945848-focus",
+   "phase": "focus",
+   "startedAt": 1792670945848,
+   "endedAt": 1792672445848,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792672560848-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792672560848,
+   "endedAt": 1792673460848,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792673540848-focus",
+   "phase": "focus",
+   "startedAt": 1792673540848,
+   "endedAt": 1792675040848,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792675082848-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792675082848,
+   "endedAt": 1792675382848,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792675429848-focus",
+   "phase": "focus",
+   "startedAt": 1792675429848,
+   "endedAt": 1792676929848,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792677048848-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792677048848,
+   "endedAt": 1792677228445,
+   "plannedMs": 300000,
+   "actualMs": 179597,
+   "completed": false
+  },
+  {
+   "id": "1792677324445-focus",
+   "phase": "focus",
+   "startedAt": 1792677324445,
+   "endedAt": 1792678824445,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792678937445-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792678937445,
+   "endedAt": 1792679237445,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792685237445-focus",
+   "phase": "focus",
+   "startedAt": 1792685237445,
+   "endedAt": 1792686737445,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792686880445-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792686880445,
+   "endedAt": 1792687780445,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792687833445-focus",
+   "phase": "focus",
+   "startedAt": 1792687833445,
+   "endedAt": 1792689333445,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792689412445-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792689412445,
+   "endedAt": 1792689712445,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792744260000-focus",
+   "phase": "focus",
+   "startedAt": 1792744260000,
+   "endedAt": 1792745760000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792745898000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792745898000,
+   "endedAt": 1792746198000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792746247000-focus",
+   "phase": "focus",
+   "startedAt": 1792746247000,
+   "endedAt": 1792747747000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792747868000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792747868000,
+   "endedAt": 1792748001944,
+   "plannedMs": 300000,
+   "actualMs": 133944,
+   "completed": false
+  },
+  {
+   "id": "1792748104944-focus",
+   "phase": "focus",
+   "startedAt": 1792748104944,
+   "endedAt": 1792748614221,
+   "plannedMs": 1500000,
+   "actualMs": 389277,
+   "completed": false
+  },
+  {
+   "id": "1792748679221-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792748679221,
+   "endedAt": 1792748979221,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792751968221-focus",
+   "phase": "focus",
+   "startedAt": 1792751968221,
+   "endedAt": 1792753468221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792753479221-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792753479221,
+   "endedAt": 1792753779221,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792753860221-focus",
+   "phase": "focus",
+   "startedAt": 1792753860221,
+   "endedAt": 1792755360221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792755376221-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792755376221,
+   "endedAt": 1792756276221,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792756282221-focus",
+   "phase": "focus",
+   "startedAt": 1792756282221,
+   "endedAt": 1792758202221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792758321221-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792758321221,
+   "endedAt": 1792758621221,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792758719221-focus",
+   "phase": "focus",
+   "startedAt": 1792758719221,
+   "endedAt": 1792760219221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792760345221-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792760345221,
+   "endedAt": 1792760645221,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792768452221-focus",
+   "phase": "focus",
+   "startedAt": 1792768452221,
+   "endedAt": 1792769952221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792770035221-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792770035221,
+   "endedAt": 1792770335221,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792770452221-focus",
+   "phase": "focus",
+   "startedAt": 1792770452221,
+   "endedAt": 1792771952221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792771972221-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792771972221,
+   "endedAt": 1792772872221,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792773003221-focus",
+   "phase": "focus",
+   "startedAt": 1792773003221,
+   "endedAt": 1792774503221,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792774566221-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792774566221,
+   "endedAt": 1792774866221,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792833660000-focus",
+   "phase": "focus",
+   "startedAt": 1792833660000,
+   "endedAt": 1792835160000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792835186000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792835186000,
+   "endedAt": 1792835486000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792835553000-focus",
+   "phase": "focus",
+   "startedAt": 1792835553000,
+   "endedAt": 1792837053000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792837160000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792837160000,
+   "endedAt": 1792837460000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792837574000-focus",
+   "phase": "focus",
+   "startedAt": 1792837574000,
+   "endedAt": 1792839074000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792839191000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792839191000,
+   "endedAt": 1792839491000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792839551000-focus",
+   "phase": "focus",
+   "startedAt": 1792839551000,
+   "endedAt": 1792841051000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792841082000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792841082000,
+   "endedAt": 1792841982000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792842057000-focus",
+   "phase": "focus",
+   "startedAt": 1792842057000,
+   "endedAt": 1792843557000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792843652000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792843652000,
+   "endedAt": 1792843952000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792847438000-focus",
+   "phase": "focus",
+   "startedAt": 1792847438000,
+   "endedAt": 1792848938000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792848977000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792848977000,
+   "endedAt": 1792849277000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792849425000-focus",
+   "phase": "focus",
+   "startedAt": 1792849425000,
+   "endedAt": 1792851165000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792851227000-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792851227000,
+   "endedAt": 1792851527000,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792851586000-focus",
+   "phase": "focus",
+   "startedAt": 1792851586000,
+   "endedAt": 1792853386000,
+   "plannedMs": 1500000,
+   "actualMs": 1500000,
+   "completed": true
+  },
+  {
+   "id": "1792853395000-longBreak",
+   "phase": "longBreak",
+   "startedAt": 1792853395000,
+   "endedAt": 1792854295000,
+   "plannedMs": 900000,
+   "actualMs": 900000,
+   "completed": true
+  },
+  {
+   "id": "1792854321000-focus",
+   "phase": "focus",
+   "startedAt": 1792854321000,
+   "endedAt": 1792855422573,
+   "plannedMs": 1500000,
+   "actualMs": 1101573,
+   "completed": false
+  },
+  {
+   "id": "1792855536573-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792855536573,
+   "endedAt": 1792855836573,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  },
+  {
+   "id": "1792855931573-focus",
+   "phase": "focus",
+   "startedAt": 1792855931573,
+   "endedAt": 1792856718262,
+   "plannedMs": 1500000,
+   "actualMs": 606689,
+   "completed": false
+  },
+  {
+   "id": "1792856867262-shortBreak",
+   "phase": "shortBreak",
+   "startedAt": 1792856867262,
+   "endedAt": 1792857167262,
+   "plannedMs": 300000,
+   "actualMs": 300000,
+   "completed": true
+  }
+ ]
+}

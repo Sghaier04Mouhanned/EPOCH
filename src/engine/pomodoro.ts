@@ -61,6 +61,9 @@ export interface Transition {
 
 const MINUTE = 60_000;
 
+/** A session stopped before this is treated as an accidental start, not history. */
+export const MIN_INTERRUPTED_MS = MINUTE;
+
 export function phaseDurationMs(phase: Phase, settings: Settings): number {
   switch (phase) {
     case 'focus':
@@ -150,23 +153,32 @@ function complete(
   return { state: next, record };
 }
 
+/**
+ * The phase that follows `phase`, given the focus count after it ended.
+ * A long break comes once the cycle is full, and ending one restarts the count.
+ */
+export function phaseAfter(
+  phase: Phase,
+  completedInCycle: number,
+  settings: Settings,
+): { phase: Phase; completedInCycle: number } {
+  if (phase === 'focus') {
+    return { phase: completedInCycle >= settings.longBreakEvery ? 'longBreak' : 'shortBreak', completedInCycle };
+  }
+  return { phase: 'focus', completedInCycle: phase === 'longBreak' ? 0 : completedInCycle };
+}
+
 /** Move to the idle countdown of the phase after the current one. */
 function advance(state: PomodoroState, completedInCycle: number, settings: Settings): PomodoroState {
-  let phase: Phase;
-  if (state.phase === 'focus') {
-    phase = completedInCycle >= settings.longBreakEvery ? 'longBreak' : 'shortBreak';
-  } else {
-    phase = 'focus';
-    if (state.phase === 'longBreak') completedInCycle = 0;
-  }
-  return { phase, countdown: countdown.idle(phaseDurationMs(phase, settings)), completedInCycle };
+  const next = phaseAfter(state.phase, completedInCycle, settings);
+  return { ...next, countdown: countdown.idle(phaseDurationMs(next.phase, settings)) };
 }
 
 function interruptedRecord(state: PomodoroState, now: number): SessionRecord | undefined {
   const c = state.countdown;
   if (c.status === 'idle') return undefined;
   const actualMs = countdown.elapsedMs(c, now);
-  if (actualMs <= 0) return undefined;
+  if (actualMs < MIN_INTERRUPTED_MS) return undefined;
   return {
     phase: state.phase,
     startedAt: c.startedAt,

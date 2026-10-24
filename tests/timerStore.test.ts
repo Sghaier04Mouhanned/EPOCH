@@ -155,3 +155,19 @@ describe('timer store', () => {
     expect(store.getSnapshot().state.phase).toBe('shortBreak');
   });
 });
+
+describe('timer store while idle', () => {
+  it('still publishes once a minute so clock times stay current', () => {
+    const { store, clock } = setup();
+    const listener = vi.fn();
+    store.subscribe(listener);
+    const nextMinute = Math.ceil((T0 + 1) / MIN) * MIN;
+    clock.t = nextMinute - 1;
+    store.tick();
+    expect(listener).not.toHaveBeenCalled();
+    clock.t = nextMinute;
+    store.tick();
+    expect(listener).toHaveBeenCalledOnce();
+    expect(store.getSnapshot().now).toBe(nextMinute);
+  });
+});

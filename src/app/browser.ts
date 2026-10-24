@@ -3,14 +3,42 @@
 
 import { ACTIVE_TIMER_KEY } from '../storage/activeTimer';
 import { browserStorage } from '../storage/kv';
-import { openSessionRepo } from '../storage/sessions';
+import { openSessionRepo, type SessionRepo } from '../storage/sessions';
 import { SETTINGS_KEY } from '../storage/settings';
 import { createTimerStore, type TimerStore } from './timerStore';
 
 const TICK_MS = 250;
+const CHANNEL = 'epoch';
 
-export function createBrowserTimerStore(): TimerStore {
-  return createTimerStore({ storage: browserStorage(), sessions: openSessionRepo() });
+export interface BrowserApp {
+  store: TimerStore;
+  sessions: SessionRepo;
+  /** Call `listener` whenever session history changes in this tab or another. */
+  watchHistory(listener: () => void): () => void;
+}
+
+export function createBrowserApp(now?: () => number): BrowserApp {
+  const sessions = openSessionRepo();
+  const store = createTimerStore({ storage: browserStorage(), sessions, now });
+  const channel = typeof BroadcastChannel === 'undefined' ? undefined : new BroadcastChannel(CHANNEL);
+
+  // The timer state reaches other tabs through the `storage` event, but the
+  // session write lands in IndexedDB a moment later, so announce it once done.
+  store.onSessionWritten(() => channel?.postMessage('history'));
+
+  return {
+    store,
+    sessions,
+    watchHistory(listener) {
+      const offLocal = store.onSessionWritten(listener);
+      const onMessage = () => listener();
+      channel?.addEventListener('message', onMessage);
+      return () => {
+        offLocal();
+        channel?.removeEventListener('message', onMessage);
+      };
+    },
+  };
 }
 
 /** Start ticking and listening for tab/visibility changes. Returns a cleanup function. */

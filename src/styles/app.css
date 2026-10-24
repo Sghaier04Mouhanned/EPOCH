@@ -1,0 +1,795 @@
+/*
+ * Epoch, dark only. Linear's palette (DESIGN.md) mapped onto the
+ * true-black-flat app style: elevation by lightness alone, no borders or
+ * shadows on cards, the primary control inverted (white pill), and the one
+ * hue (Linear lavender) on focus data only, never on buttons or nav.
+ *
+ * Grid: 12 columns x 77px + 11 gaps x 16px = 1100px.
+ * Row 1: countdown 8 cols (728) + 16 + up next 4 cols (356) = 1100.
+ */
+
+:root {
+  color-scheme: dark;
+
+  --ground: #010102; /* Linear canvas */
+  --surface: #0f1011; /* Linear surface-1: panels */
+  --raised: #1b1c1f; /* nested: row cards, tracks */
+  --raised-2: #2a2c31; /* current row, the mark's ring */
+  --rule: #1a1b1e;
+  --control: #3e3e44; /* outlined control edge: Linear hairline-tertiary */
+
+  --text: #f7f8f8; /* Linear ink */
+  --muted: #b4b8bf; /* secondary text, 9:1 on surface */
+  --faint: #8a8f98; /* meta, 5.2:1 on raised (Linear ink-subtle) */
+
+  --accent: #5e6ad2; /* Linear lavender: focus data only */
+  --break: #4a4d55; /* breaks, in neutral grey */
+  --primary: #f7f8f8;
+  --on-primary: #010102;
+
+  --radius-card: 16px;
+  --radius-row: 10px;
+  --radius-mark: 4px;
+  --gap: 16px;
+  --control-height: 36px;
+  --width: min(1100px, calc(100% - 48px));
+
+  --font: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font: 400 14px/20px var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--text);
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---- Top bar: wordmark, three destinations, active by brightness ---- */
+
+.topbar {
+  border-bottom: 1px solid var(--rule);
+}
+
+.topbar-inner {
+  width: var(--width);
+  height: 48px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 24px;
+}
+
+.topbar nav a {
+  color: var(--faint);
+  padding: 14px 0;
+  transition: color 120ms ease;
+}
+
+.topbar nav a:hover,
+.topbar nav a[aria-current='page'] {
+  color: var(--text);
+}
+
+/* ---- Canvas and title row ---- */
+
+.canvas {
+  width: var(--width);
+  margin-inline: auto;
+  padding: 36px 0 64px;
+}
+
+.title-row {
+  margin-bottom: 24px;
+}
+
+.title-row h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subline {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.panel {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+/* ---- Countdown: the screen's answer ---- */
+
+.countdown {
+  grid-column: span 8;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.digits {
+  margin: 0;
+  font-size: clamp(88px, 13.5vw, 192px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  margin-left: -0.04em; /* optical: pull the first digit's side bearing onto the edge */
+}
+
+.digits.is-paused {
+  color: var(--faint);
+}
+
+.progress {
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--raised);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 1s linear;
+}
+
+.fill-focus {
+  background: var(--accent);
+}
+
+.fill-break {
+  background: var(--faint);
+}
+
+.ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.hint {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--faint);
+}
+
+.btn {
+  height: var(--control-height);
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: 500 14px/1 var(--font);
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 80ms ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  min-width: 112px;
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+}
+
+.btn-secondary {
+  border-color: var(--control);
+}
+
+.btn-secondary:hover {
+  border-color: #5a5c63;
+  background: var(--raised);
+}
+
+.btn-text {
+  color: var(--muted);
+  padding: 0 12px;
+}
+
+.btn-text:hover {
+  color: var(--text);
+}
+
+/* ---- Up next ---- */
+
+.upnext {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.row-card {
+  min-height: 63px;
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border-radius: var(--radius-row);
+  background: var(--raised);
+}
+
+.row-card.is-current {
+  background: var(--raised-2);
+}
+
+.row-main {
+  display: grid;
+  gap: 2px;
+}
+
+.row-label {
+  font-weight: 500;
+}
+
+.row-meta,
+.row-sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+}
+
+.row-card.is-current .row-meta,
+.row-card.is-current .row-sub {
+  color: var(--muted); /* faint grey drops under 4.5:1 on the lighter current row */
+}
+
+.row-time {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+}
+
+.dot-focus {
+  background: var(--accent);
+}
+
+.dot-break {
+  background: var(--break);
+}
+
+/* ---- Today ---- */
+
+.today {
+  grid-column: span 12;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panel-meta {
+  font-size: 12px;
+  color: var(--faint);
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 20px 0 28px;
+}
+
+.sessions,
+.week-panel {
+  grid-column: span 6;
+}
+
+.figures > div {
+  padding-left: 20px;
+  border-left: 1px solid var(--rule);
+}
+
+.figures > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.figures dt {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+}
+
+.figures dd {
+  margin: 6px 0 0;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.unit {
+  font-size: 14px;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+/* The day strip */
+
+.strip {
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted);
+}
+
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  border-radius: 2px;
+}
+
+.strip-track {
+  position: relative;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--raised);
+}
+
+.block {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  min-width: 2px;
+  border-radius: var(--radius-mark);
+}
+
+.block-focus {
+  background: var(--accent);
+}
+
+.block-early {
+  border: 1.5px solid var(--accent);
+}
+
+.block-break {
+  background: var(--break);
+}
+
+.block-planned {
+  border: 1px dashed var(--accent);
+}
+
+.swatch.block-early,
+.swatch.block-planned {
+  background: transparent;
+}
+
+.now-line {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 1px;
+  background: var(--text);
+}
+
+.strip-axis {
+  position: relative;
+  height: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+}
+
+.strip-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.strip-axis span.first {
+  transform: none;
+}
+
+.strip-axis span.last {
+  transform: translateX(-100%);
+}
+
+/* Session list */
+
+.sessions .panel-head {
+  margin-bottom: 12px;
+}
+
+.link {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.session-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.session {
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 6.5rem;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.session-time {
+  color: var(--muted);
+}
+
+.session-note {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+}
+
+.session-phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.session-length {
+  text-align: right;
+}
+
+.empty {
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px dashed var(--control);
+  border-radius: 8px;
+  color: var(--muted);
+}
+
+.notice {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--raised);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Last 7 days */
+
+/* The plot grows to the height of the Sessions card beside it, so the pair ends level. */
+.week-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.week {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0;
+}
+
+.week-plot {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  min-height: 176px;
+}
+
+.week-ticks {
+  position: relative;
+}
+
+.week-ticks span {
+  position: absolute;
+  right: 12px;
+  transform: translateY(50%);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.week-area {
+  position: relative;
+}
+
+.gridline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #1f2024;
+}
+
+.gridline.baseline {
+  background: var(--control);
+}
+
+.week-bars {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.week-bars li {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bar {
+  width: min(40px, 60%);
+  background: #3c3f46;
+  border-radius: 4px 4px 0 0;
+}
+
+.bar-today {
+  background: var(--accent);
+}
+
+.week-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding-left: 44px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+  text-align: center;
+}
+
+.week-days .is-today {
+  color: var(--text);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skeleton {
+  display: inline-block;
+  width: 72px;
+  height: 24px;
+  vertical-align: middle;
+  border-radius: 4px;
+  background: var(--raised);
+}
+
+.skeleton.wide {
+  width: 100%;
+  height: 16px;
+}
+
+/* ---- Tablet: the two top panels stack ---- */
+
+@media (max-width: 900px) {
+  .countdown,
+  .upnext,
+  .sessions,
+  .week-panel {
+    grid-column: span 12;
+  }
+
+  .rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---- Phone: its own composition ---- */
+
+@media (max-width: 640px) {
+  :root {
+    --width: calc(100% - 32px);
+  }
+
+  .topbar nav {
+    gap: 16px;
+  }
+
+  .canvas {
+    padding-top: 24px;
+  }
+
+  .title-row h1 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .countdown {
+    padding: 24px 20px;
+  }
+
+  .digits {
+    font-size: clamp(72px, 24vw, 104px);
+  }
+
+  .btn {
+    height: 44px;
+  }
+
+  .btn-primary {
+    flex: 1 1 100%;
+  }
+
+  .btn-secondary {
+    flex: 1 1 auto;
+  }
+
+  .hint {
+    display: none;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .rows {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 16px;
+  }
+
+  .figures > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .session {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'phase length'
+      'time length';
+    row-gap: 2px;
+    padding: 10px 0;
+  }
+
+  .session-phase {
+    grid-area: phase;
+  }
+
+  .session-length {
+    grid-area: length;
+  }
+
+  .session-time {
+    grid-area: time;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill,
+  .btn,
+  .topbar nav a {
+    transition: none;
+  }
+
+  .btn:active {
+    transform: none;
+  }
+}
