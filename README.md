@@ -3,8 +3,10 @@
 A Pomodoro study timer with stats. It runs entirely in your browser: no account, no server,
 your history stays on your device. Installable as an app and works offline.
 
-> Status: feature-complete for a first release: timer, stats, settings, backups, sounds and
-> notifications, offline install. Deployment is next.
+**Use it:** https://epoch.mouhannedsghaier2004.workers.dev
+
+> Status: first release: timer, stats, settings, backups, sounds and notifications, light and
+> dark themes, offline install.
 
 ## How it works
 
