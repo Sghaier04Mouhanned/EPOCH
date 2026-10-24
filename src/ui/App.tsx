@@ -3,6 +3,8 @@ import { remainingMs } from '../engine/countdown';
 import type { BrowserApp } from '../app/browser';
 import { useTimer } from '../app/useTimer';
 import { PHASE_LABEL, formatCountdown } from './format';
+import { SettingsScreen } from './SettingsScreen';
+import { StatsScreen } from './StatsScreen';
 import { TimerScreen } from './TimerScreen';
 
 type Route = 'timer' | 'stats' | 'settings';
@@ -57,29 +59,9 @@ export function App({ app }: { app: BrowserApp }) {
       </header>
       <main className="canvas">
         {route === 'timer' && <TimerScreen app={app} snapshot={snapshot} />}
-        {route === 'stats' && (
-          <ComingNext title="Stats" text="Daily totals, streaks and when you focus best are being built next." />
-        )}
-        {route === 'settings' && (
-          <ComingNext
-            title="Settings"
-            text="Session lengths, auto-start and backup export arrive with the next update. Defaults: 25 m focus, 5 m short break, 15 m long break every 4 sessions."
-          />
-        )}
+        {route === 'stats' && <StatsScreen app={app} snapshot={snapshot} />}
+        {route === 'settings' && <SettingsScreen app={app} snapshot={snapshot} />}
       </main>
-    </>
-  );
-}
-
-function ComingNext({ title, text }: { title: string; text: string }) {
-  return (
-    <>
-      <header className="title-row">
-        <h1>{title}</h1>
-      </header>
-      <section className="panel">
-        <p className="empty">{text}</p>
-      </section>
     </>
   );
 }

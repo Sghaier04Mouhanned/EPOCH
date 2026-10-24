@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { scale } from '../src/ui/WeekChart';
+import { scale } from '../src/ui/DayColumns';
 
 const MIN = 60_000;
 const H = 60 * MIN;
 
-describe('week chart scale', () => {
+describe('day columns scale', () => {
   it.each([
     [0, 15 * MIN, 15 * MIN],
     [50 * MIN, 15 * MIN, 60 * MIN],

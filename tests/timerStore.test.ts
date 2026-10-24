@@ -1,29 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createTimerStore, type PhaseEnd } from '../src/app/timerStore';
 import { memoryStorage, type KeyValueStorage } from '../src/storage/kv';
-import type { SessionRepo, StoredSession } from '../src/storage/sessions';
+import type { SessionRepo } from '../src/storage/sessions';
+import { memoryRepo } from './helpers';
 
 const T0 = 1_700_000_000_000;
 const MIN = 60_000;
-
-function memoryRepo(): SessionRepo & { rows: Map<string, StoredSession> } {
-  const rows = new Map<string, StoredSession>();
-  return {
-    rows,
-    async put(s) {
-      rows.set(s.id, s);
-    },
-    async putMany(list) {
-      for (const s of list) rows.set(s.id, s);
-    },
-    async between(from, to) {
-      return [...rows.values()].filter((s) => s.startedAt >= from && s.startedAt < to);
-    },
-    async all() {
-      return [...rows.values()];
-    },
-  };
-}
 
 /** A store with a controllable clock. Pass `storage`/`sessions` to simulate a reload. */
 function setup(opts: { at?: number; storage?: KeyValueStorage; sessions?: ReturnType<typeof memoryRepo> } = {}) {

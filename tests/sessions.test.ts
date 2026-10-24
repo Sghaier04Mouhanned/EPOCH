@@ -30,6 +30,13 @@ describe('session repo', () => {
     expect(found.map((s) => s.startedAt)).toEqual([T0, T0 + 30 * MIN, T0 + 60 * MIN]);
   });
 
+  it('clears every session', async () => {
+    const repo = freshRepo();
+    await repo.putMany([toStored(focus(T0)), toStored(focus(T0 + 30 * MIN))]);
+    await repo.clear();
+    expect(await repo.all()).toEqual([]);
+  });
+
   it('lets a later write replace an earlier one for the same session', async () => {
     const repo = freshRepo();
     await repo.put(toStored(focus(T0, false)));

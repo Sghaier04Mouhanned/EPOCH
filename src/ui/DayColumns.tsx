@@ -1,14 +1,16 @@
-// Focus per day for the last seven days: columns on a round time scale, with
-// today's column in the one data hue.
+// Focus per day as columns on a round time scale, today's column in the one
+// data hue. Seven days get weekday names; longer ranges get a date every few
+// columns, always ending on today.
 
 import type { DayTotal } from '../stats/day';
 import { formatDuration } from './format';
 
 const MIN = 60_000;
 const STEPS = [15, 30, 60, 120, 180, 240].map((m) => m * MIN);
-const weekday = new Intl.DateTimeFormat(undefined, { weekday: 'short' });
-
 const MAX_TICKS = 6;
+const MAX_DATE_LABELS = 6;
+const weekday = new Intl.DateTimeFormat(undefined, { weekday: 'short' });
+const shortDate = new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' });
 
 /**
  * The finest round step that keeps the axis to six ticks or fewer, with the
@@ -28,15 +30,19 @@ function tickLabel(ms: number): string {
   return ms % (60 * MIN) === 0 ? `${ms / (60 * MIN)} h` : formatDuration(ms);
 }
 
-export function WeekChart({ totals }: { totals: DayTotal[] }) {
-  const max = Math.max(...totals.map((t) => t.focusedMs));
+export function DayColumns({ totals, average, label }: { totals: DayTotal[]; average?: number; label: string }) {
+  const max = Math.max(...totals.map((t) => t.focusedMs), average ?? 0);
   const { step, top } = scale(max);
   const ticks: number[] = [];
   for (let v = 0; v <= top; v += step) ticks.push(v);
-  const lastIndex = totals.length - 1;
+  const last = totals.length - 1;
+  const byWeekday = totals.length <= 7;
+  const every = Math.ceil(totals.length / MAX_DATE_LABELS);
+  const name = (t: DayTotal, i: number) =>
+    i === last ? 'Today' : byWeekday ? weekday.format(t.day) : shortDate.format(t.day);
 
   return (
-    <figure className="week" aria-label="Focus time on each of the last seven days">
+    <figure className="week" aria-label={label}>
       <div className="week-plot">
         <div className="week-ticks num" aria-hidden="true">
           {ticks.map((v) => (
@@ -49,25 +55,28 @@ export function WeekChart({ totals }: { totals: DayTotal[] }) {
           {ticks.map((v) => (
             <i key={v} className={v === 0 ? 'gridline baseline' : 'gridline'} style={{ bottom: `${(v / top) * 100}%` }} />
           ))}
-          <ol className="week-bars">
+          <ol className="week-bars" style={{ gridTemplateColumns: `repeat(${totals.length}, minmax(0, 1fr))` }}>
             {totals.map((t, i) => (
-              <li key={t.day} title={`${weekday.format(t.day)}: ${formatDuration(t.focusedMs)}`}>
+              <li key={t.day} title={`${name(t, i)}: ${formatDuration(t.focusedMs)}`}>
                 <span
-                  className={i === lastIndex ? 'bar bar-today' : 'bar'}
+                  className={i === last ? 'bar bar-today' : 'bar'}
                   style={{ height: `${(t.focusedMs / top) * 100}%` }}
                 />
                 <span className="sr-only">
-                  {i === lastIndex ? 'Today' : weekday.format(t.day)}: {formatDuration(t.focusedMs)}
+                  {name(t, i)}: {formatDuration(t.focusedMs)}
                 </span>
               </li>
             ))}
           </ol>
+          {average !== undefined && average > 0 && (
+            <div className="reference" style={{ bottom: `${(average / top) * 100}%` }} aria-hidden="true" />
+          )}
         </div>
       </div>
-      <div className="week-days" aria-hidden="true">
+      <div className="week-days" style={{ gridTemplateColumns: `repeat(${totals.length}, minmax(0, 1fr))` }} aria-hidden="true">
         {totals.map((t, i) => (
-          <span key={t.day} className={i === lastIndex ? 'is-today' : undefined}>
-            {i === lastIndex ? 'Today' : weekday.format(t.day)}
+          <span key={t.day} className={i === last ? 'is-today' : undefined}>
+            {byWeekday || (last - i) % every === 0 ? name(t, i) : ''}
           </span>
         ))}
       </div>

@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_SETTINGS, initialState, reduce, type SessionRecord } from '../src/engine/pomodoro';
 import { ACTIVE_TIMER_KEY, loadActiveTimer, saveActiveTimer } from '../src/storage/activeTimer';
-import { buildBackup, parseBackup } from '../src/storage/backup';
+import { buildBackup, importSessions, parseBackup } from '../src/storage/backup';
+import { memoryRepo } from './helpers';
 import { memoryStorage } from '../src/storage/kv';
 import { sessionId, toStored } from '../src/storage/sessions';
 import { SETTINGS_KEY, loadSettings, sanitizeSettings, saveSettings } from '../src/storage/settings';
@@ -93,5 +94,24 @@ describe('backup', () => {
     const parsed = parseBackup(text);
     expect(parsed.ok).toBe(false);
     if (!parsed.ok) expect(parsed.error).toContain(message);
+  });
+});
+
+describe('importSessions', () => {
+  const rec = (startedAt: number): SessionRecord => ({
+    phase: 'focus',
+    startedAt,
+    endedAt: startedAt + 25 * MIN,
+    plannedMs: 25 * MIN,
+    actualMs: 25 * MIN,
+    completed: true,
+  });
+
+  it('adds new sessions, counts the ones already there and never doubles them', async () => {
+    const repo = memoryRepo();
+    await repo.put(toStored(rec(T0)));
+    const result = await importSessions(repo, [toStored(rec(T0)), toStored(rec(T0 + 30 * MIN))]);
+    expect(result).toEqual({ added: 1, alreadyHere: 1 });
+    expect(repo.rows.size).toBe(2);
   });
 });

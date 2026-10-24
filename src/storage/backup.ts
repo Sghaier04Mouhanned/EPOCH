@@ -4,7 +4,7 @@
 
 import type { Settings } from '../engine/pomodoro';
 import { isRecord } from './kv';
-import { isSessionRecord, toStored, type StoredSession } from './sessions';
+import { isSessionRecord, toStored, type SessionRepo, type StoredSession } from './sessions';
 import { sanitizeSettings } from './settings';
 
 export const BACKUP_VERSION = 1;
@@ -56,4 +56,18 @@ export function parseBackup(text: string): ParsedBackup {
     sessions,
     skipped: data.sessions.length - valid.length,
   };
+}
+
+/**
+ * Add a parsed backup's sessions to the repo. Sessions already there (same
+ * id) are rewritten, not doubled; the counts say which were new.
+ */
+export async function importSessions(
+  repo: SessionRepo,
+  sessions: StoredSession[],
+): Promise<{ added: number; alreadyHere: number }> {
+  const existing = new Set((await repo.all()).map((s) => s.id));
+  const added = sessions.filter((s) => !existing.has(s.id)).length;
+  await repo.putMany(sessions);
+  return { added, alreadyHere: sessions.length - added };
 }

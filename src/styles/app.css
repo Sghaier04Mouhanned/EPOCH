@@ -23,6 +23,8 @@
   --faint: #8a8f98; /* meta, 5.2:1 on raised (Linear ink-subtle) */
 
   --accent: #5e6ad2; /* Linear lavender: focus data only */
+  --positive: #3fc07a; /* good changes, switches that are on */
+  --negative: #e5566f; /* bad changes, destructive actions; 4.8:1 on raised */
   --break: #4a4d55; /* breaks, in neutral grey */
   --primary: #f7f8f8;
   --on-primary: #010102;
@@ -568,8 +570,9 @@ a {
 
 /* Last 7 days */
 
-/* The plot grows to the height of the Sessions card beside it, so the pair ends level. */
-.week-panel {
+/* A chart's plot grows to the height of the card beside it, so the pair ends level. */
+.week-panel,
+.chart-panel {
   display: flex;
   flex-direction: column;
 }
@@ -655,6 +658,21 @@ a {
   text-align: center;
 }
 
+/* Labels wider than their column overflow evenly; the end ones overflow inwards. */
+.week-days span {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.week-days span:first-child {
+  justify-content: flex-start;
+}
+
+.week-days span:last-child {
+  justify-content: flex-end;
+}
+
 .week-days .is-today {
   color: var(--text);
 }
@@ -682,14 +700,498 @@ a {
   height: 16px;
 }
 
+/* ---- Shared spans and chart reference line ---- */
+
+.span-8 {
+  grid-column: span 8;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.reference {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed var(--muted);
+  pointer-events: none;
+}
+
+.swatch-reference {
+  width: 14px;
+  height: 0;
+  border-top: 1px dashed var(--muted);
+  border-radius: 0;
+  vertical-align: 3px;
+}
+
+/* ---- Stats ---- */
+
+.title-row-split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* The selection is marked by brightness, never by the accent. */
+.segmented {
+  display: inline-flex;
+  flex: none;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.segmented button {
+  height: 30px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--faint);
+  font: 500 13px/1 var(--font);
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.segmented button:hover {
+  color: var(--text);
+}
+
+.segmented button[aria-checked='true'] {
+  background: var(--raised-2);
+  color: var(--text);
+}
+
+.kpis {
+  grid-column: span 12;
+}
+
+.figures-kpi {
+  margin: 0;
+}
+
+.kpi-note {
+  margin: 4px 0 0;
+}
+
+.delta {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+}
+
+.positive {
+  color: var(--positive);
+}
+
+.negative {
+  color: var(--negative);
+}
+
+.notice-top {
+  margin: 0 0 16px;
+}
+
+.btn-inline {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.barlist {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.barlist li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  row-gap: 6px;
+}
+
+.barlist-label {
+  color: var(--muted);
+}
+
+.barlist .is-best .barlist-label {
+  color: var(--text);
+}
+
+.barlist-track {
+  grid-column: 1 / -1;
+  height: 4px;
+}
+
+.barlist-track span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #3c3f46;
+}
+
+.barlist .is-best .barlist-track span {
+  background: var(--accent);
+}
+
+.heatmap {
+  margin: 20px 0 0;
+}
+
+.heat-grid {
+  display: grid;
+  gap: 3px;
+}
+
+.heat-row {
+  display: contents;
+}
+
+.heat-day {
+  font-size: 12px;
+  line-height: 22px;
+  color: var(--faint);
+}
+
+.heat-cell {
+  display: block;
+  height: 22px;
+  border-radius: 3px;
+  background: var(--raised);
+}
+
+.heat-cell.level-1 {
+  background: color-mix(in srgb, var(--accent) 30%, var(--surface));
+}
+
+.heat-cell.level-2 {
+  background: color-mix(in srgb, var(--accent) 55%, var(--surface));
+}
+
+.heat-cell.level-3 {
+  background: color-mix(in srgb, var(--accent) 78%, var(--surface));
+}
+
+.heat-cell.level-4 {
+  background: var(--accent);
+}
+
+.heat-hour {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.heat-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted);
+}
+
+.heat-legend .heat-cell {
+  width: 14px;
+  height: 14px;
+}
+
+.heat-max {
+  margin-left: auto;
+  color: var(--faint);
+}
+
+.completion {
+  margin-top: 20px;
+}
+
+.completion-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.completion-value {
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--text);
+}
+
+.kv {
+  margin: 20px 0 0;
+}
+
+.kv > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.kv dt {
+  color: var(--muted);
+}
+
+.kv dd {
+  margin: 0;
+  text-align: right;
+}
+
+/* ---- Settings: a 4-column label beside an 8-column panel (356 + 16 + 728 = 1100) ---- */
+
+.settings-row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--gap);
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.title-row + .settings-row {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.settings-label {
+  grid-column: span 4;
+  padding-top: 22px; /* the title lines up with the panel's first line */
+}
+
+.settings-label p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.settings-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.saved {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--positive);
+}
+
+.settings-panel {
+  grid-column: span 8;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.input-unit {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--control);
+  border-radius: 10px;
+  background: var(--raised);
+}
+
+.input-unit:focus-within {
+  outline: 2px solid var(--text);
+  outline-offset: 1px;
+}
+
+.input-unit.is-invalid {
+  border-color: var(--negative);
+}
+
+.input-unit input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font: 400 14px/20px var(--font);
+  font-variant-numeric: tabular-nums;
+}
+
+.unit-suffix {
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.field-error {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--negative);
+}
+
+.cycle {
+  margin: 24px 0 0;
+}
+
+.cycle-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cycle-strip {
+  display: flex;
+  gap: 3px;
+  height: 24px;
+}
+
+.cycle-block {
+  flex-basis: 0;
+  min-width: 3px;
+  border-radius: var(--radius-mark);
+}
+
+.switch-row,
+.backup-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.switch-row:first-child,
+.backup-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.switch-row:last-child,
+.backup-row:last-child {
+  padding-bottom: 0;
+}
+
+.switch-title {
+  margin: 0;
+  font-weight: 500;
+}
+
+.switch-desc {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* On is the positive green, never the brand accent. */
+.switch {
+  appearance: none;
+  flex: none;
+  position: relative;
+  width: 33px;
+  height: 20px;
+  margin: 0;
+  border-radius: 999px;
+  background: var(--raised-2);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.switch::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform 120ms ease;
+}
+
+.switch:checked {
+  background: var(--positive);
+}
+
+.switch:checked::before {
+  transform: translateX(13px);
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.btn-danger {
+  border-color: color-mix(in srgb, var(--negative) 60%, transparent);
+  color: var(--negative);
+}
+
+.btn-danger:hover {
+  background: #2c1a20;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  border-color: var(--control);
+  color: var(--faint);
+  background: transparent;
+}
+
+.confirm p {
+  margin: 0;
+}
+
+.confirm .controls {
+  margin-top: 16px;
+}
+
+.notice-error {
+  color: var(--negative);
+}
+
 /* ---- Tablet: the two top panels stack ---- */
 
 @media (max-width: 900px) {
   .countdown,
   .upnext,
   .sessions,
-  .week-panel {
+  .week-panel,
+  .span-8,
+  .span-4,
+  .settings-label,
+  .settings-panel {
     grid-column: span 12;
+  }
+
+  .settings-label {
+    padding-top: 0;
   }
 
   .rows {
@@ -715,6 +1217,20 @@ a {
   .title-row h1 {
     font-size: 22px;
     line-height: 28px;
+  }
+
+  .title-row-split {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .segmented button {
+    flex: 1;
+  }
+
+  .backup-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .countdown {
@@ -785,7 +1301,10 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .fill,
   .btn,
-  .topbar nav a {
+  .topbar nav a,
+  .switch,
+  .switch::before,
+  .segmented button {
     transition: none;
   }
 

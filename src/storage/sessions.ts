@@ -42,6 +42,8 @@ export interface SessionRepo {
   /** Sessions that started in [from, to), oldest first. */
   between(from: number, to: number): Promise<StoredSession[]>;
   all(): Promise<StoredSession[]>;
+  /** Permanently delete every session. */
+  clear(): Promise<void>;
 }
 
 type SessionDb = Dexie & { sessions: EntityTable<StoredSession, 'id'> };
@@ -62,6 +64,9 @@ export function openSessionRepo(name = 'epoch'): SessionRepo {
     },
     all() {
       return db.sessions.orderBy('startedAt').toArray();
+    },
+    async clear() {
+      await db.sessions.clear();
     },
   };
 }

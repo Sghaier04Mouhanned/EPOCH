@@ -3,8 +3,8 @@
 A Pomodoro study timer with stats. It runs entirely in your browser: no account, no server,
 your history stays on your device. Installable as an app and works offline.
 
-> Status: early development. The timer, today's history and the last 7 days work; the Stats and
-> Settings screens are next.
+> Status: in development. Timer, Stats and Settings work (including backup export and import);
+> end-of-phase sounds, offline install and deployment are next.
 
 ## How it works
 
@@ -15,7 +15,7 @@ src/engine/     Timer logic in plain TypeScript, no UI code
   schedule.ts     the next phases with projected clock times
 src/storage/    localStorage (settings, running timer) and IndexedDB (session history)
 src/app/        the timer store, browser wiring (ticks, tab sync) and React hooks
-src/stats/      day totals, streak, last 7 days
+src/stats/      day totals, streaks, ranges, weekday and hour-of-day breakdowns
 src/ui/         the React screens
 tools/          Python tooling: alarm sound synthesis, sample history generator
 fixtures/       sample-backup.json, written by tools/ and used in development and tests

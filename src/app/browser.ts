@@ -15,6 +15,8 @@ export interface BrowserApp {
   sessions: SessionRepo;
   /** Call `listener` whenever session history changes in this tab or another. */
   watchHistory(listener: () => void): () => void;
+  /** Announce a change made outside the timer (an import, a delete) here and in other tabs. */
+  historyChanged(): void;
 }
 
 export function createBrowserApp(now?: () => number): BrowserApp {
@@ -22,19 +24,25 @@ export function createBrowserApp(now?: () => number): BrowserApp {
   const store = createTimerStore({ storage: browserStorage(), sessions, now });
   const channel = typeof BroadcastChannel === 'undefined' ? undefined : new BroadcastChannel(CHANNEL);
 
-  // The timer state reaches other tabs through the `storage` event, but the
-  // session write lands in IndexedDB a moment later, so announce it once done.
-  store.onSessionWritten(() => channel?.postMessage('history'));
+  const listeners = new Set<() => void>();
+  const historyChanged = () => {
+    for (const l of listeners) l();
+    // The timer state reaches other tabs through the `storage` event, but a
+    // session write lands in IndexedDB a moment later, so announce it once done.
+    channel?.postMessage('history');
+  };
+  store.onSessionWritten(historyChanged);
 
   return {
     store,
     sessions,
+    historyChanged,
     watchHistory(listener) {
-      const offLocal = store.onSessionWritten(listener);
+      listeners.add(listener);
       const onMessage = () => listener();
       channel?.addEventListener('message', onMessage);
       return () => {
-        offLocal();
+        listeners.delete(listener);
         channel?.removeEventListener('message', onMessage);
       };
     },
