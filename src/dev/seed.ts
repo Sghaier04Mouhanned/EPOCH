@@ -2,11 +2,13 @@
 //
 //   ?at=15:20   pin the app's clock to that time today (it keeps ticking)
 //   ?seed       load fixtures/sample-backup.json, moved so its last day is today
+//   ?start      open with a focus session running (21:18 left), for the full-screen view
 //
 // The sample is written by `uv run --project tools epoch-sample`. Its wall-clock
 // times are re-read in this browser's time zone, and sessions after the
 // (pinned) clock are left out so "today" stops at now.
 
+import { ACTIVE_TIMER_KEY } from '../storage/activeTimer';
 import { parseBackup } from '../storage/backup';
 import { openSessionRepo, toStored } from '../storage/sessions';
 
@@ -48,6 +50,19 @@ export async function prepare(): Promise<{ now?: () => number }> {
       .map(({ id: _, ...s }) => toStored({ ...s, startedAt: local(s.startedAt), endedAt: local(s.endedAt) }))
       .filter((s) => s.endedAt <= now());
     await openSessionRepo().putMany(sessions);
+  }
+
+  if (params.has('start')) {
+    const durationMs = 25 * 60_000;
+    const startedAt = now() - (3 * 60 + 42) * 1000;
+    localStorage.setItem(
+      ACTIVE_TIMER_KEY,
+      JSON.stringify({
+        phase: 'focus',
+        completedInCycle: 0,
+        countdown: { status: 'running', durationMs, startedAt, endsAt: startedAt + durationMs },
+      }),
+    );
   }
 
   return { now: offset ? now : undefined };

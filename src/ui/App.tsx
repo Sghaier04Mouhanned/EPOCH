@@ -2,6 +2,7 @@ import { useEffect, useSyncExternalStore } from 'react';
 import { remainingMs } from '../engine/countdown';
 import type { BrowserApp } from '../app/browser';
 import { useTimer } from '../app/useTimer';
+import { FocusOverlay, isFocusRunning } from './FocusOverlay';
 import { PHASE_LABEL, formatCountdown } from './format';
 import { SettingsScreen } from './SettingsScreen';
 import { StatsScreen } from './StatsScreen';
@@ -40,9 +41,12 @@ export function App({ app }: { app: BrowserApp }) {
         : `${formatCountdown(remainingMs(state.countdown, now))} · ${PHASE_LABEL[state.phase]} · Epoch`;
   }, [state, now]);
 
+  const focusRunning = isFocusRunning(state);
+
   return (
     <>
-      <header className="topbar">
+      {focusRunning && <FocusOverlay store={app.store} state={state} now={now} />}
+      <header className={focusRunning ? 'topbar is-behind' : 'topbar'} inert={focusRunning}>
         <div className="topbar-inner">
           <a className="wordmark" href="#/">
             <Mark />
@@ -57,7 +61,7 @@ export function App({ app }: { app: BrowserApp }) {
           </nav>
         </div>
       </header>
-      <main className="canvas">
+      <main className={focusRunning ? 'canvas is-behind' : 'canvas'} inert={focusRunning}>
         {route === 'timer' && <TimerScreen app={app} snapshot={snapshot} />}
         {route === 'stats' && <StatsScreen app={app} snapshot={snapshot} />}
         {route === 'settings' && <SettingsScreen app={app} snapshot={snapshot} />}

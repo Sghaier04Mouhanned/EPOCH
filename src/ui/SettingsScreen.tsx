@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useSyncExternalStore, type ChangeEvent, type ReactNode } from 'react';
-import { notifyStatus, playChime, type NotifyStatus } from '../alerts/browser';
+import { notifyStatus, playRing, type NotifyStatus } from '../alerts/browser';
 import { phaseDurationMs, type Phase, type Settings } from '../engine/pomodoro';
 import type { BrowserApp } from '../app/browser';
 import type { TimerSnapshot } from '../app/timerStore';
@@ -272,14 +272,14 @@ function Alerts({ app }: { app: BrowserApp }) {
       <Switch
         id="alert-sound"
         title="Play a sound"
-        description="A short chime: rising when focus ends, a single tone when a break ends."
+        description="A single bell ring when focus or a break ends."
         checked={prefs.sound}
         onChange={() => {
           app.alertPrefs.set({ sound: !prefs.sound });
           stamp();
         }}
         extra={
-          <button type="button" className="btn btn-text" onClick={() => void playChime('focus')}>
+          <button type="button" className="btn btn-text" onClick={() => void playRing()}>
             Play
           </button>
         }

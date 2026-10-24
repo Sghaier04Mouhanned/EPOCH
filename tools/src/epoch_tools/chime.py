@@ -1,9 +1,11 @@
-"""Synthesise Epoch's end-of-phase chimes as WAV files.
+"""Synthesise Epoch's end-of-phase ring as a WAV file.
 
-Each chime is a few bell-like notes: a fundamental plus slightly inharmonic
-partials, each with its own exponential decay, and a short attack so playback
-never starts with a click. Standard library only, and the output is
-deterministic, so regenerating the files gives byte-identical results.
+One strike of a small bell: a warm hum an octave below, the strike tone and
+its octave (each a pair of slightly detuned tones, which gives a real bell
+its gentle shimmer), and a few inharmonic overtones that fade fast and give
+the strike its brightness. Each partial decays on its own, with a short
+attack so playback never starts with a click. Standard library only, and the
+output is deterministic, so regenerating gives byte-identical files.
 """
 
 from __future__ import annotations
@@ -15,13 +17,20 @@ import wave
 from dataclasses import dataclass
 from pathlib import Path
 
-SAMPLE_RATE = 22_050  # the highest partial is about 5.5 kHz, well under the 11 kHz limit
-PEAK = 0.7  # about -3 dBFS, leaves headroom for the browser mixer
-ATTACK_S = 0.005
-FADE_OUT_S = 0.05
+SAMPLE_RATE = 22_050  # the highest partial is under 8 kHz, below the 11 kHz limit
+PEAK = 0.6  # about -4.4 dBFS: present without being harsh
+ATTACK_S = 0.004
+FADE_OUT_S = 0.35
 
-# (frequency ratio, relative amplitude, decay time constant in seconds)
-PARTIALS = [(1.0, 1.0, 0.9), (2.0, 0.45, 0.5), (3.01, 0.22, 0.3), (4.2, 0.1, 0.18)]
+# (frequency ratio, relative amplitude, decay time constant in seconds, shimmer in Hz)
+PARTIALS = [
+    (0.5, 0.18, 2.4, 0.0),  # hum
+    (1.0, 1.0, 1.8, 1.2),  # strike tone
+    (2.0, 0.30, 1.1, 1.7),  # octave
+    (2.76, 0.22, 0.7, 0.0),  # bell overtones: bright, gone quickly
+    (5.40, 0.10, 0.25, 0.0),
+    (8.93, 0.04, 0.10, 0.0),
+]
 
 
 @dataclass(frozen=True)
@@ -32,11 +41,9 @@ class Note:
     gain: float = 1.0
 
 
+# One ring for every phase change, so it reads as Epoch's sound rather than a signal to decode.
 SOUNDS: dict[str, list[Note]] = {
-    # Rising pair: focus is over, time for a break.
-    "focus-complete": [Note(880.0, 0.0, 1.6), Note(1318.51, 0.18, 1.8, 0.8)],
-    # Single lower tone: break is over, back to work.
-    "break-complete": [Note(659.25, 0.0, 1.8)],
+    "ring": [Note(880.0, 0.0, 3.0)],
 }
 
 
@@ -47,10 +54,13 @@ def bell(note: Note, sample_rate: int = SAMPLE_RATE) -> list[float]:
     out = []
     for i in range(n):
         t = i / sample_rate
-        s = sum(
-            amp * math.exp(-t / decay) * math.sin(2 * math.pi * note.freq * ratio * t)
-            for ratio, amp, decay in PARTIALS
-        )
+        s = 0.0
+        for ratio, amp, decay, shimmer in PARTIALS:
+            f = note.freq * ratio
+            tone = math.sin(2 * math.pi * f * t)
+            if shimmer:
+                tone = (tone + math.sin(2 * math.pi * (f + shimmer) * t)) / 2
+            s += amp * math.exp(-t / decay) * tone
         env = min(1.0, i / attack, (n - 1 - i) / fade)
         out.append(s * env * note.gain)
     return out

@@ -168,12 +168,25 @@ a {
 }
 
 .digits {
-  margin: 0;
+  margin: 0 0 0 -0.04em; /* optical: pull the first digit's side bearing onto the edge */
   font-size: clamp(88px, 13.5vw, 192px);
   line-height: 1;
   font-weight: 500;
-  letter-spacing: -0.045em;
-  margin-left: -0.04em; /* optical: pull the first digit's side bearing onto the edge */
+}
+
+/* Fixed slots per character (see Digits.tsx): clean glyphs, no jiggle as the seconds change. */
+.digits-slots {
+  display: inline-flex;
+}
+
+.slot {
+  display: inline-block;
+  width: 0.6em;
+  text-align: center;
+}
+
+.slot-colon {
+  width: 0.3em;
 }
 
 .digits.is-paused {
@@ -1188,6 +1201,55 @@ a {
   color: var(--negative);
 }
 
+/* ---- Full-screen focus: the countdown and Pause, nothing else ---- */
+
+body.is-locked {
+  overflow: hidden;
+}
+
+/* The page behind is not drawn at all, but keeps its layout so the scroll position survives. */
+.is-behind {
+  visibility: hidden;
+}
+
+.focus-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 5vh, 56px);
+  padding: 16px;
+  background: var(--ground);
+  animation: overlay-in 240ms ease-out;
+}
+
+.focus-digits {
+  margin: 0;
+  font-size: clamp(88px, 24vw, 360px);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.focus-digits.has-hours {
+  font-size: clamp(64px, 16vw, 240px);
+}
+
+.focus-overlay .focus-pause {
+  flex: none; /* outranks the phone rule that stretches the timer screen's buttons */
+  height: 44px;
+  min-width: 140px;
+  font-size: 15px;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* ---- Tablet: the two top panels stack ---- */
 
 @media (max-width: 900px) {
@@ -1318,6 +1380,10 @@ a {
   .switch::before,
   .segmented button {
     transition: none;
+  }
+
+  .focus-overlay {
+    animation: none;
   }
 
   .btn:active {

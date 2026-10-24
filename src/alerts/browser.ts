@@ -43,20 +43,15 @@ export function createAlertPrefs(storage: KeyValueStorage) {
 
 export type AlertPrefsStore = ReturnType<typeof createAlertPrefs>;
 
-const chimes = {
-  focus: `${BASE}sounds/focus-complete.wav`,
-  break: `${BASE}sounds/break-complete.wav`,
-};
-const players = new Map<string, HTMLAudioElement>();
+let ring: HTMLAudioElement | undefined;
 
-/** Play a chime; false if the browser refused (no interaction with this tab yet). */
-export async function playChime(kind: keyof typeof chimes): Promise<boolean> {
-  let audio = players.get(kind);
-  if (!audio) {
-    audio = new Audio(chimes[kind]);
-    audio.preload = 'auto';
-    players.set(kind, audio);
+/** Play the ring; false if the browser refused (no interaction with this tab yet). */
+export async function playRing(): Promise<boolean> {
+  if (!ring) {
+    ring = new Audio(`${BASE}sounds/ring.wav`);
+    ring.preload = 'auto';
   }
+  const audio = ring;
   audio.currentTime = 0;
   try {
     await audio.play();
@@ -93,9 +88,9 @@ export function connectAlerts(store: TimerStore, prefs: AlertPrefsStore, storage
 
     const { sound, notify } = prefs.get();
     const { state, settings } = store.getSnapshot();
-    const heard = sound ? await playChime(record.phase === 'focus' ? 'focus' : 'break') : false;
+    const heard = sound ? await playRing() : false;
 
-    // Notify when the tab is out of sight, or when the chime could not play.
+    // Notify when the tab is out of sight, or when the ring could not play.
     const wanted = document.visibilityState === 'hidden' || (sound && !heard);
     if (notify && wanted && notifyStatus() === 'granted') {
       const { title, body } = alertMessage(record, state, settings);
