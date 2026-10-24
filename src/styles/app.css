@@ -1109,6 +1109,18 @@ a {
   color: var(--muted);
 }
 
+.switch-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 /* On is the positive green, never the brand accent. */
 .switch {
   appearance: none;

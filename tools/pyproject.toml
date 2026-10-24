@@ -9,6 +9,8 @@ dependencies = []
 [project.scripts]
 epoch-chime = "epoch_tools.chime:main"
 epoch-sample = "epoch_tools.sample:main"
+epoch-icons = "epoch_tools.icons:main"
+epoch-stats = "epoch_tools.stats:main"
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.6"]

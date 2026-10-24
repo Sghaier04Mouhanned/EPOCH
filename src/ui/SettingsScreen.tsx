@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, type ChangeEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type ChangeEvent, type ReactNode } from 'react';
+import { notifyStatus, playChime, type NotifyStatus } from '../alerts/browser';
 import { phaseDurationMs, type Phase, type Settings } from '../engine/pomodoro';
 import type { BrowserApp } from '../app/browser';
 import type { TimerSnapshot } from '../app/timerStore';
@@ -46,6 +47,7 @@ export function SettingsScreen({ app, snapshot }: { app: BrowserApp; snapshot: T
 
       <SessionLengths app={app} settings={settings} running={running} />
       <AutoStart app={app} settings={settings} />
+      <Alerts app={app} />
       <Backup app={app} settings={settings} />
       <DeleteHistory app={app} />
     </>
@@ -197,7 +199,15 @@ function AutoStart({ app, settings }: { app: BrowserApp; settings: Settings }) {
   );
 }
 
-function Switch(props: { id: string; title: string; description: string; checked: boolean; onChange: () => void }) {
+function Switch(props: {
+  id: string;
+  title: string;
+  description: string;
+  checked: boolean;
+  onChange: () => void;
+  disabled?: boolean;
+  extra?: ReactNode;
+}) {
   return (
     <div className="switch-row">
       <div>
@@ -208,16 +218,81 @@ function Switch(props: { id: string; title: string; description: string; checked
           {props.description}
         </p>
       </div>
-      <input
-        id={props.id}
-        type="checkbox"
-        role="switch"
-        className="switch"
-        checked={props.checked}
-        onChange={props.onChange}
-        aria-describedby={`${props.id}-desc`}
-      />
+      <div className="switch-controls">
+        {props.extra}
+        <input
+          id={props.id}
+          type="checkbox"
+          role="switch"
+          className="switch"
+          checked={props.checked}
+          disabled={props.disabled}
+          onChange={props.onChange}
+          aria-describedby={`${props.id}-desc`}
+        />
+      </div>
     </div>
+  );
+}
+
+const NOTIFY_HELP: Record<NotifyStatus, string> = {
+  default: 'Shown when Epoch is in the background. Your browser asks for permission the first time.',
+  granted: 'Shown when Epoch is in the background, or when the sound could not play.',
+  denied: "Blocked for this site in your browser. Allow notifications in the site settings (the icon left of the address), then turn this on.",
+  unsupported: "This browser can't show notifications from a web page. On iPhone, add Epoch to the Home Screen first.",
+};
+
+function Alerts({ app }: { app: BrowserApp }) {
+  const prefs = useSyncExternalStore(app.alertPrefs.subscribe, app.alertPrefs.get);
+  const [status, setStatus] = useState<NotifyStatus>(notifyStatus);
+  const [saved, stamp] = useSavedStamp();
+  const blocked = status === 'denied' || status === 'unsupported';
+
+  const toggleNotify = async () => {
+    if (prefs.notify) {
+      app.alertPrefs.set({ notify: false });
+      stamp();
+      return;
+    }
+    const permission = status === 'default' ? await Notification.requestPermission() : status;
+    setStatus(permission);
+    if (permission === 'granted') {
+      app.alertPrefs.set({ notify: true });
+      stamp();
+    }
+  };
+
+  return (
+    <Section
+      id="alerts-title"
+      title="Alerts"
+      description="How Epoch tells you a phase is over. Only one open tab alerts, however many you have."
+      stamp={saved}
+    >
+      <Switch
+        id="alert-sound"
+        title="Play a sound"
+        description="A short chime: rising when focus ends, a single tone when a break ends."
+        checked={prefs.sound}
+        onChange={() => {
+          app.alertPrefs.set({ sound: !prefs.sound });
+          stamp();
+        }}
+        extra={
+          <button type="button" className="btn btn-text" onClick={() => void playChime('focus')}>
+            Play
+          </button>
+        }
+      />
+      <Switch
+        id="alert-notify"
+        title="Show a notification"
+        description={NOTIFY_HELP[status]}
+        checked={prefs.notify && status === 'granted'}
+        disabled={blocked}
+        onChange={() => void toggleNotify()}
+      />
+    </Section>
   );
 }
 

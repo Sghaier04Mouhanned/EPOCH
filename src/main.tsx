@@ -11,7 +11,7 @@ async function boot() {
   const dev = import.meta.env.DEV ? await import('./dev/seed').then((m) => m.prepare()) : undefined;
 
   const app = createBrowserApp(dev?.now);
-  connectBrowser(app.store);
+  connectBrowser(app);
 
   createRoot(document.getElementById('root')!).render(
     <StrictMode>

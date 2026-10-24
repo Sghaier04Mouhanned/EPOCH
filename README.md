@@ -3,8 +3,8 @@
 A Pomodoro study timer with stats. It runs entirely in your browser: no account, no server,
 your history stays on your device. Installable as an app and works offline.
 
-> Status: in development. Timer, Stats and Settings work (including backup export and import);
-> end-of-phase sounds, offline install and deployment are next.
+> Status: feature-complete for a first release: timer, stats, settings, backups, sounds and
+> notifications, offline install. Deployment is next.
 
 ## How it works
 
@@ -15,9 +15,10 @@ src/engine/     Timer logic in plain TypeScript, no UI code
   schedule.ts     the next phases with projected clock times
 src/storage/    localStorage (settings, running timer) and IndexedDB (session history)
 src/app/        the timer store, browser wiring (ticks, tab sync) and React hooks
+src/alerts/     end-of-phase chime and notification, played by exactly one open tab
 src/stats/      day totals, streaks, ranges, weekday and hour-of-day breakdowns
 src/ui/         the React screens
-tools/          Python tooling: alarm sound synthesis, sample history generator
+tools/          Python tooling: study report, chimes, icons, sample history
 fixtures/       sample-backup.json, written by tools/ and used in development and tests
 tests/          Vitest tests
 ```
@@ -42,13 +43,16 @@ To see the interface with realistic data, open the dev server with
 `http://localhost:5173/?seed&at=15:20`: `seed` loads three weeks of sample history into this
 browser, and `at` pins the clock to that time today. Both exist only in development builds.
 
-Python tooling lives in [`tools/`](tools/README.md):
+Python tooling lives in [`tools/`](tools/README.md). The one you'd use day to day is the study
+report, which reads a backup downloaded from Settings:
 
 ```bash
-uv run --project tools pytest tools
-uv run --project tools epoch-chime --out public/sounds
-uv run --project tools epoch-sample
+uv run --project tools epoch-stats epoch-backup-2026-10-24.json --days 30
 ```
+
+The others build the app's assets (`epoch-chime`, `epoch-icons`, `epoch-sample`) and are covered by
+`uv run --project tools pytest tools`. The app and the report compute the same figures; a contract
+test in each language checks them against `fixtures/sample-stats-30d.json`.
 
 ## Design
 

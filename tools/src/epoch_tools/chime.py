@@ -15,7 +15,7 @@ import wave
 from dataclasses import dataclass
 from pathlib import Path
 
-SAMPLE_RATE = 44_100
+SAMPLE_RATE = 22_050  # the highest partial is about 5.5 kHz, well under the 11 kHz limit
 PEAK = 0.7  # about -3 dBFS, leaves headroom for the browser mixer
 ATTACK_S = 0.005
 FADE_OUT_S = 0.05
