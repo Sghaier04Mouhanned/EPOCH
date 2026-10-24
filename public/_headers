@@ -1,0 +1,29 @@
+# Cloudflare Pages response headers (copied to dist/ by Vite).
+#
+# The CSP allows only Epoch's own files. The one inline script (the theme
+# script in index.html) is allowed by its hash; tests/headers.test.ts fails if
+# the script changes without this hash being updated. Inline style attributes
+# (progress widths, chart heights) need 'unsafe-inline' for styles only.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-QyFCRCaAMkWdgw8HVuUZBV2Z8VqijGS9BvZiwmd1Wfw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# Hashed file names: safe to keep for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Always re-checked, so a new version reaches people on their next visit.
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-cache
+/registerSW.js
+  Cache-Control: no-cache
+/manifest.webmanifest
+  Cache-Control: no-cache

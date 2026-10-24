@@ -54,6 +54,22 @@ The others build the app's assets (`epoch-chime`, `epoch-icons`, `epoch-sample`)
 `uv run --project tools pytest tools`. The app and the report compute the same figures; a contract
 test in each language checks them against `fixtures/sample-stats-30d.json`.
 
+## Deployment
+
+Epoch is a static site: `npm run build` writes everything to `dist/`. It is hosted on
+Cloudflare Pages, connected to this repository, so every push to `main` deploys.
+
+| Setting | Value |
+|---|---|
+| Framework preset | None (or Vite) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node version | from `.nvmrc` |
+
+[`public/_headers`](public/_headers) sets the caching and security headers, including a strict
+Content Security Policy. To try the built site with those headers locally:
+`npm run preview:headers` (serves on port 4175).
+
 ## Design
 
 The visual base is [`DESIGN.md`](DESIGN.md), a single-accent design system modelled on

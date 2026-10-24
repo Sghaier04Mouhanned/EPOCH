@@ -12,6 +12,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview", "--", "--port", "4173", "--strictPort"],
       "port": 4173
+    },
+    {
+      "name": "headers",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/serve-with-headers.mjs", "4175"],
+      "port": 4175
     }
   ]
 }
