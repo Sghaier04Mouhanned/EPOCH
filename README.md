@@ -56,19 +56,20 @@ test in each language checks them against `fixtures/sample-stats-30d.json`.
 
 ## Deployment
 
-Epoch is a static site: `npm run build` writes everything to `dist/`. It is hosted on
-Cloudflare Pages, connected to this repository, so every push to `main` deploys.
+Epoch is a static site: `npm run build` writes everything to `dist/`. It is served by Cloudflare
+Workers as static assets ([`wrangler.jsonc`](wrangler.jsonc), no server code), connected to this
+repository so every push to `main` deploys.
 
-| Setting | Value |
+| Setting in Cloudflare | Value |
 |---|---|
-| Framework preset | None (or Vite) |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node version | from `.nvmrc` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
 
 [`public/_headers`](public/_headers) sets the caching and security headers, including a strict
 Content Security Policy. To try the built site with those headers locally:
-`npm run preview:headers` (serves on port 4175).
+`npm run preview:headers` (serves on port 4175). `npx wrangler deploy --dry-run` checks the
+deploy config without uploading.
 
 ## Design
 

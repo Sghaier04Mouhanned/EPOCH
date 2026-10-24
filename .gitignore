@@ -20,3 +20,6 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Cloudflare Wrangler local state
+.wrangler/

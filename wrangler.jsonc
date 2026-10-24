@@ -1,0 +1,11 @@
+// Cloudflare Workers config: Epoch is served as static assets from dist/
+// (built by `npm run build`). There is no server code. public/_headers
+// supplies the caching and security headers, as it does on Pages.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "epoch",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
